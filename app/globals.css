@@ -4,11 +4,6 @@
   --color-background: #FDFFF5;
   --color-primary: #054C2E;
   --color-secondary: #E47839;
-
-  --font-family-h1: var(--font-sohne-breit), sans-serif;
-  --font-family-heading: var(--font-titillium-web), sans-serif;
-  --font-family-body: var(--font-open-sans), sans-serif;
-
   --radius-custom-lg: 0.5rem;
 }
 

@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import logo from "../public/images/verdigrow-logo.png";
+import Image from "next/image";
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,12 +22,12 @@ export default function Navbar() {
     <nav
       className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-9/10 rounded-full flex justify-between items-center px-6 py-2 transition-colors duration-600 ${
         scrolled
-          ? "bg-[#2E5D3B] text-white"
+          ? "bg-[#095920] text-white"
           : "bg-white/10 backdrop-blur-md border border-white/30 text-white"
       }`}
     >
       <Link href="/">
-        <img src={logo} alt="VerdiGrow" className="h-8" />
+        <Image src="/images/verdigrow-logo.png" alt="VerdiGrow" height={32} width={120} />
       </Link>
       <ul className="flex space-x-6">
         <li>

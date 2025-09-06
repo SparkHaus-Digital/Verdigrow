@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TaglineSection from "@/components/TaglineSection";
 
 export default function Home() {
   return (
@@ -13,9 +14,9 @@ export default function Home() {
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute bottom-20 left-5 right-5 flex justify-between items-center max-w-5xl mx-auto">
+        <div className="absolute bottom-20 left-5 right-5 flex justify-between items-center max-w-6xl mx-auto">
           <div className="text-left">
-            <h1 className="font-h1 text-4xl text-white leading-tight">
+            <h1 className="font-h1 font-black text-6xl text-white leading-tight">
               HELPING EVERY SEED<br />
               TAKE ROOT
             </h1>
@@ -29,18 +30,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tagline Section */}
-      <section className="px-6 md:px-12 my-12">
-        <h1 className="font-h1 text-3xl md:text-4xl text-left text-primary leading-snug">
-          From local growers to <span className="text-secondary">international</span> buyers, our eco-friendly <span className="text-secondary">cocopeat</span> is making its mark <span className="text-secondary">across the globe</span>.
-        </h1>
-      </section>
+      {/* Animated Tagline Section */}
+      <TaglineSection />
 
       {/* Product Section */}
-      <section className="px-6 md:px-12 my-12">
+      <section className="px-6 md:px-12 my-20 mx-8">
         <h2 className="font-heading text-2xl mb-6">Products</h2>
         <div className="bg-primary rounded-lg p-6 flex flex-col md:flex-row items-center md:items-start text-white">
-          {/* Left side: product info */}
           <div className="flex-1 space-y-4">
             <h3 className="font-heading text-xl">Cocopeat Grow Bags</h3>
             <p className="font-body text-sm md:text-base">
@@ -53,8 +49,6 @@ export default function Home() {
               Discover More
             </Link>
           </div>
-
-          {/* Right side: product image */}
           <div className="flex-1 mt-6 md:mt-0 md:ml-6">
             <img
               src="/images/product-sample.jpg"
@@ -66,14 +60,12 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="px-6 md:px-12 my-12">
+      <section className="px-6 md:px-12 my-20 mx-8">
         <div className="border-2 border-secondary rounded-tr-4xl rounded-bl-4xl p-6">
           <h2 className="font-h1 text-3xl text-left mb-2">Why Choose VerdiGrow?</h2>
           <p className="font-body text-gray-700 mb-8">
             Because quality matters: our grow bags are crafted with EC, pH, moisture, and sand testing for consistent crop success.
           </p>
-
-          {/* Features grid */}
           <div className="grid md:grid-cols-2 gap-6">
             {[
               { title: "EC Tested", desc: "Ensures balanced nutrients." },

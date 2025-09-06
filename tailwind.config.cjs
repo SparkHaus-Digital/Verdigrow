@@ -1,26 +1,19 @@
-// tailwind.config.cjs
-const { fontFamily } = require("tailwindcss/defaultTheme");
+// tailwind.config.js
+import { fontFamily } from "tailwindcss/defaultTheme";
 
-module.exports = {
+export default {
   content: [
-    "./app/**/*.{js,jsx,ts,tsx}",
-    "./components/**/*.{js,jsx,ts,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
-      colors: {
-        background: "#FDFFF5",
-        primary: "#054C2E",
-        secondary: "#E47839",
-      },
       fontFamily: {
-        h1: ["var(--font-sohne-breit)", ...fontFamily.sans],
-        heading: ["var(--font-titillium-web)", ...fontFamily.sans],
+        h1: ["var(--font-soehne-breit)", ...fontFamily.sans],
+        heading: ["var(--font-titillium)", ...fontFamily.sans],
         body: ["var(--font-open-sans)", ...fontFamily.sans],
       },
-      borderRadius: {
-        "custom-lg": "1rem",
-      },
+
     },
   },
   plugins: [],
