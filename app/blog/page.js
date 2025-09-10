@@ -7,7 +7,7 @@ const posts = [
 
 export default function Blog() {
   return (
-    <div className="p-6">
+    <div className="p-6 mx-20 mt-30">
       <h1 className="text-2xl font-bold mb-6">Blog</h1>
       <ul className="space-y-4">
         {posts.map((post) => (

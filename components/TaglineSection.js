@@ -35,7 +35,7 @@ export default function TaglineSection() {
   return (
     <section
       ref={sectionRef}
-      className="px-6 md:px-12 my-20 mx-8 overflow-hidden"
+      className="px-6 md:px-12 my-20 mx-12 overflow-hidden"
     >
       <h1 className="font-h1 font-black text-6xl md:text-6xl text-left text-primary leading-snug">
         <span className="word inline-block mr-2">FROM</span>
