@@ -1,4 +1,5 @@
 // components/Footer.jsx
+import Image from "next/image";
 import { FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
 import { IoMdMail, IoMdCall, IoLogoWhatsapp } from "react-icons/io";
 import Link from "next/link";
@@ -6,20 +7,28 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer
-      className="bg-white text-primary py-10"
+      className="relative bg-white text-primary py-10"
       style={{
-        backgroundImage: "url('/images/footer-bg.png')",
+        backgroundImage: "url('/images/footer-bg-2.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-[#FDFFF5]/75 pointer-events-none"></div>
+      
+      <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
         {/* Left - Logo & Socials */}
         <div>
-          <h2 className="font-h1 text-2xl font-bold text-primary">
-            VERDIGROW
-          </h2>
-          <p className="text-sm text-secondary font-semibold mt-1">
+           <Image
+            src="/images/footer-logo.png"
+            alt="Verdigrow Logo"
+            width={180} // adjust as needed
+            height={50} // adjust as needed
+            priority
+          />
+          <p className="font-titillium font-semibold text-primary text-2xl mt-1">
             GROW | SUSTAIN | THRIVE
           </p>
 
@@ -38,41 +47,41 @@ export default function Footer() {
 
         {/* Middle - Email & Contact */}
         <div>
-          <h3 className="font-heading font-semibold text-lg mb-3">EMAIL</h3>
-          <p className="flex items-center gap-2 text-sm">
-            <IoMdMail className="text-secondary" /> info@verdigrowglobal.com
+          <h3 className="font-titillium font-semibold text-2xl mb-3">EMAIL</h3>
+          <p className="flex items-center gap-2 font-sans font-semibold text-lg text-black">
+            <IoMdMail className="" /> info@verdigrowglobal.com
           </p>
 
-          <h3 className="font-heading font-semibold text-lg mt-6 mb-3">
+          <h3 className="font-titillium font-semibold text-2xl mt-6 mb-3">
             CONTACT
           </h3>
-          <p className="flex items-center gap-2 text-sm">
-            <IoMdCall className="text-secondary" /> +94 11 274 2238
+          <p className="flex items-center gap-2 font-sans font-semibold text-lg text-black">
+            <IoMdCall className="" /> +94 11 274 2238
           </p>
-          <p className="flex items-center gap-2 text-sm">
-            <IoLogoWhatsapp className="text-secondary" /> +94 11 274 2238
+          <p className="flex items-center gap-2 font-sans font-semibold text-lg text-black">
+            <IoLogoWhatsapp className="" /> +94 11 274 2238
           </p>
         </div>
 
         {/* Right - Address & Buttons */}
         <div>
-          <h3 className="font-heading font-semibold text-lg mb-3">
+          <h3 className="font-titillium font-semibold text-2xl mb-3">
             VERDIGROW GLOBAL
           </h3>
-          <p className="text-sm mb-4">
-            No. 590, Athurugiriya Road, Malabe, Colombo, Sri Lanka.
+          <p className="font-sans font-semibold text-lg text-black mb-4">
+            No. 590, <br/> Athurugiriya Road, Malabe, <br/> Colombo, Sri Lanka.
           </p>
 
           <div className="space-y-3">
             <Link
               href="/contact"
-              className="w-full inline-flex items-center justify-center gap-2 bg-primary text-white px-5 py-2 rounded-md hover:bg-secondary transition"
+              className="w-full inline-flex items-center justify-center gap-2 bg-primary text-white font-sans text-xl px-5 py-2 rounded-2xl hover:bg-secondary transition"
             >
               Contact
             </Link>
             <Link
               href="/quote"
-              className="w-full inline-flex items-center justify-center gap-2 bg-primary text-white px-5 py-2 rounded-md hover:bg-secondary transition"
+              className="w-full inline-flex items-center justify-center gap-2 bg-primary text-white font-sans text-xl px-5 py-2 rounded-2xl hover:bg-secondary transition"
             >
               Get a Quote
             </Link>
@@ -81,7 +90,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom */}
-      <div className="text-center text-xs text-gray-600 mt-10">
+      <div className="text-center font-sans text-xl text-black mt-10">
         <p>© 2025 Verdigrow. All rights reserved.</p>
         <p>
           Powered by <span className="italic font-semibold">Sparkhaus.</span>

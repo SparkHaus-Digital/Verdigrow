@@ -1,3 +1,79 @@
+/* =================== Sohne Breit =================== */
+@font-face {
+  font-family: "SohneBreit";
+  src: url("/fonts/soehne-breit/SohneBreit-Dreiviertelfett.woff") format("woff");
+  font-weight: 600; /* Dreiviertelfett = SemiBold/600 */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SohneBreit";
+  src: url("/fonts/soehne-breit/SohneBreit-Extrafett.woff") format("woff");
+  font-weight: 800; /* Extrafett = ExtraBold/800 */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =================== Open Sans =================== */
+@font-face {
+  font-family: "OpenSans";
+  src: url("/fonts/open-sans/OpenSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("/fonts/open-sans/OpenSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("/fonts/open-sans/OpenSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =================== Titillium Web =================== */
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("/fonts/titillium-web/TitilliumWeb-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("/fonts/titillium-web/TitilliumWeb-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("/fonts/titillium-web/TitilliumWeb-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TitilliumWeb";
+  src: url("/fonts/titillium-web/TitilliumWeb-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* =================== Tailwind =================== */
 @import "tailwindcss";
 
 @theme {
@@ -5,22 +81,13 @@
   --color-primary: #054C2E;
   --color-secondary: #E47839;
   --radius-custom-lg: 0.5rem;
+
+  --font-sohne: "SohneBreit", sans-serif;
+  --font-open: "OpenSans", sans-serif;
+  --font-titillium: "TitilliumWeb", sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
-}
-
-.viewport-box {
-  width: 100%;
-  min-width: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.main-circle img {
-  width: 50px;
-  height: 50px;
 }
