@@ -1,25 +1,88 @@
+"use client"
+
 import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+
 
 export default function Products() {
+  const containerRef = useRef(null);
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const image = imageRef.current;
+
+    if (!container || !image) return;
+
+    // Hover In
+    const handleMouseEnter = () => {
+      gsap.to(image, {
+        scale: 1.05, // zoom in image
+        duration: 0.4,
+        ease: "power3.out",
+      });
+    };
+
+    // Hover Out
+    const handleMouseLeave = () => {
+      gsap.to(image, {
+        scale: 1, // reset to normal
+        duration: 0.4,
+        ease: "power3.out",
+      });
+    };
+
+    container.addEventListener("mouseenter", handleMouseEnter);
+    container.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      container.removeEventListener("mouseenter", handleMouseEnter);
+      container.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
 
   return (
-    <div className="p-6 mx-20 mt-30">
-      <h1 className="text-3xl font-bold mb-4">Our Products</h1>
-      <p className="mb-2">
-        We offer a range of high-quality cocopeat products designed to meet the needs of farmers and gardeners worldwide. Our products are sourced from the finest coconuts, ensuring optimal performance and sustainability.
+    <section className="mt-30 mb-20">
+    <div className="p-6 mx-auto max-w-3xl text-center">
+      <h1 className="font-sohne font-bold text-[40px] mb-4 text-primary">COCOPEAT GROW BAGS</h1>
+      <p className="font-sans mb-10 text-xl">
+        Premium quality grow bags available in cocopeat, cocochips, or a custom mix — designed for optimal crop growth and consistency
       </p>
-      <p className="mb-2">
-        Our product lineup includes:
-      </p>
-      <ul className="list-disc list-inside mb-4">
-        <li>Premium Cocopeat Blocks</li>
-        <li>Organic Cocopeat Mulch</li>
-        <li>Cocopeat Growing Medium</li>
-        <li>Custom Cocopeat Solutions</li>
-      </ul>
-      <p>
-        Each of our products is carefully processed and packaged to maintain its quality and effectiveness. Whether you're a small-scale gardener or a large agricultural operation, VerdiGrow has the right cocopeat solution for you.
-      </p>
+      </div>
+      
+       <div className="mx-auto w-[75%]">
+        {/* Image with Hover Zoom */}
+         <div
+      ref={containerRef}
+      className="relative aspect-[3/1] mb-10 overflow-hidden rounded-[40px] shadow-md border-2 border-amber-600"
+    >
+      <Image
+        ref={imageRef}
+        src="/images/products.jpg"
+        alt="Cocopeat Grow Bags"
+        fill
+        className="object-cover will-change-transform"
+        style={{ transformOrigin: "center center" }}
+        priority
+      />
     </div>
+
+       <p className="font-sans md:text-lg text-justify">
+         <span className="font-bold text-2xl">O</span>ur premium Cocopeat Grow Bags provide ideal root development with high aeration, ensuring uniform growth and stronger plants. They support efficient nutrient uptake and are easy to use in greenhouses or outdoor gardens, making them popular among both beginners and professional growers. <br/>
+          <br/> 
+
+         Customers can choose from cocopeat only, cocochips only, or a custom blend of cocopeat and cocochips to suit their crop needs. We also offer fully customizable orders, including blend ratios and packaging options. 
+         <br/>
+          <br/> 
+
+         For growers who are not focused on commercial sales, we offer our Verdigrow-branded grow bags, providing the same high-quality coir-based products for personal or farm use.
+        </p>
+      </div>
+
+     
+      </section>
+    
   );
 }

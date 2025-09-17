@@ -24,8 +24,8 @@ export default function Footer() {
            <Image
             src="/images/footer-logo.png"
             alt="Verdigrow Logo"
-            width={180} // adjust as needed
-            height={50} // adjust as needed
+            width={180} 
+            height={50} 
             priority
           />
           <p className="font-titillium font-semibold text-primary text-2xl mt-1">

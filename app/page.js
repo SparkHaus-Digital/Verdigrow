@@ -59,7 +59,7 @@ export default function Home() {
         </div>
       </section>
 
-       <div className="px-6 md:px-[120px]">
+       
 
       {/* Animated Tagline Section */}
       <TaglineSection />
@@ -123,6 +123,6 @@ export default function Home() {
         </div>
       </section>
     </div>
-    </div>
+
   );
 }
