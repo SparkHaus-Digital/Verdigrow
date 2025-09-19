@@ -1,66 +1,60 @@
-"use client";
-
-import { useState } from "react";
+import { FaPhone } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", form);
-    alert("Message sent! (demo only)");
-    setForm({ name: "", email: "", message: "" });
-  };
-
   return (
-    <div className="max-w-2xl mx-auto p-6 mt-30">
-      <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
-      <p className="text-gray-700 mb-6">
-        Have questions? Fill out the form below and we’ll get back to you.
-      </p>
+    <div className="mt-30 mb-20">
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={form.name}
-          onChange={handleChange}
-          required
-          className="w-full p-3 border rounded-lg"
-        />
+      {/* Main Box */}
+      <div className="w-3/4 mx-auto bg-primary text-white rounded-tr-[100px] rounded-bl-[100px] p-8 flex flex-col-reverse md:flex-row gap-8">
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={form.email}
-          onChange={handleChange}
-          required
-          className="w-full p-3 border rounded-lg"
-        />
+        {/* Left Column */}
+        <div className="flex flex-col">
+          <h2 className="font-sohne font-bold text-3xl md:text-[40px] mb-4">
+            CONTACT US
+          </h2>
+          <p className="mb-12">No. 590, <br />
+            Athurugiriya Road, Malabe, <br />
+            Colombo, Sri Lanka.</p>
 
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={form.message}
-          onChange={handleChange}
-          rows="5"
-          required
-          className="w-full p-3 border rounded-lg"
-        />
+          <p className="mb-12">info@verdigrow.com</p>
 
-        <button
-          type="submit"
-          className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
-        >
-          Send Message
-        </button>
-      </form>
+          <p className="mb-2 flex items-center gap-2">
+            <FaPhone className="text-lg" /> +94 11 274 2238
+          </p>
+          <p className="mb-12 flex items-center gap-2">
+            <FaWhatsapp className="text-lg" /> +94 11 274 2238
+          </p>
+
+          <div className="flex gap-4 mt-4 text-2xl md:mt-auto md:justify-start justify-center">
+            <FaFacebookF className="hover:text-secondary cursor-pointer" />
+            <FaInstagram className="hover:text-secondary cursor-pointer" />
+            <FaTiktok className="hover:text-secondary cursor-pointer" />
+            <FaLinkedin className="hover:text-secondary cursor-pointer" />
+          </div>
+        </div>
+
+        {/* Right Column */}
+        <div className="md:flex-1 flex justify-center items-center w-full h-64 md:h-auto">
+          <div className="w-full h-full rounded-tr-[50px] rounded-bl-[50px] md:rounded-tr-[100px] md:rounded-bl-[100px] overflow-hidden">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.960314839328!2d79.95771127448265!3d6.895350418731521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae250d427687caf%3A0x73b5976c53deb8ae!2s590%20Athurugiriya%20Rd%2C%20Malabe!5e0!3m2!1sen!2slk!4v1758297429916!5m2!1sen!2slk"
+              width="100%"
+              height="100%"
+              className="border-0"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+
+
+
+      </div>
     </div>
   );
 }
