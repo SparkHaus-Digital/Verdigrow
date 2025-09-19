@@ -56,7 +56,7 @@ export default function Products() {
         {/* Image with Hover Zoom */}
          <div
       ref={containerRef}
-      className="relative aspect-[3/1] mb-10 overflow-hidden rounded-[40px] shadow-md border-2 border-amber-600"
+      className="relative aspect-[3/1] mb-10 overflow-hidden rounded-tr-[100px] rounded-bl-[100px] shadow-md border-2 border-amber-600"
     >
       <Image
         ref={imageRef}
