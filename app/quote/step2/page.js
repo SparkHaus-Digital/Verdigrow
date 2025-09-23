@@ -1,30 +1,90 @@
+// app/quote/step1/page.jsx
 "use client";
+import QuoteForm from "@/components/QuoteForm";
+import { FaChevronDown } from "react-icons/fa6";
 import Link from "next/link";
-import ProgressBar from "@/components/ProgressBar";
 
 export default function QuoteStep2() {
   return (
-    <div className="p-6 mx-20  mt-30">
-      <h1 className="text-3xl font-bold mb-4">Get a Quote</h1>
+    <QuoteForm step={2}>
 
-      <ProgressBar step={2} />
+      <h2 className="text-2xl font-sans font-extrabold mb-6 text-primary">
+        ORDER INFORMATION
+      </h2>
 
-      <h2 className="text-2xl font-semibold mb-4">Step 2: Product Details</h2>
+      <form className="space-y-6 uppercase">
 
-      <form className="space-y-4">
-        <input type="text" placeholder="Product Type" className="w-full p-2 border rounded" />
-        <input type="number" placeholder="Quantity (in tons)" className="w-full p-2 border rounded" />
-        <input type="text" placeholder="Delivery Location" className="w-full p-2 border rounded" />
+        {/* ProductName */}
+        <div className="relative">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Product Name
+          </label>
+          <select
+            className="w-full p-2 border rounded bg-background appearance-none"
+          >
+            <option value="" disabled>
+              Select a product
+            </option>
+            <option value="product1">Cocopeat Grow Bags</option>
+          </select>
 
-        <div className="flex justify-between">
-          <Link href="/quote" className="bg-gray-400 text-white px-4 py-2 rounded">
-            Back
+          <span className="absolute right-3 top-9 pointer-events-none text-black">
+            <FaChevronDown size={16} />
+          </span>
+        </div>
+
+        {/* Estimated Quantity */}
+        <div className="relative">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Estimated Quantity
+          </label>
+          <select
+            className="w-full p-2 border rounded bg-background appearance-none"
+          >
+            <option value="" disabled>
+              Select Quantity
+            </option>
+            <option value="quantity1">5 KG</option>
+            <option value="quantity1">10 KG</option>
+            <option value="quantity1">20 KG</option>
+          </select>
+
+          <span className="absolute right-3 top-9 pointer-events-none text-black">
+            <FaChevronDown size={16} />
+          </span>
+        </div>
+
+        {/* Additional Notes */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            ADDITIONAL NOTES <span className="italc text-gray-500">(Optional)</span>
+          </label>
+          <input
+            type="text"
+            className="w-full p-2 border rounded"
+          />
+        </div>
+
+        {/* Next Button */}
+        <div>
+          <Link
+            href="/quote/step3"
+            className="block bg-primary text-white text-center px-6 py-2 rounded-md hover:bg-primary/90 transition"
+          >
+            Next Section
           </Link>
-          <Link href="/quote/step3" className="bg-blue-600 text-white px-4 py-2 rounded">
-            Next
+        </div>
+
+        {/* Back Button */}
+        <div>
+          <Link
+            href="/quote"
+            className="block bg-primary text-white text-center px-6 py-2 rounded-md hover:bg-primary/90 transition"
+          >
+            Back
           </Link>
         </div>
       </form>
-    </div>
+    </QuoteForm>
   );
 }
