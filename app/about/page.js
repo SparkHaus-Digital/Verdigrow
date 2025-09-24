@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
@@ -12,7 +13,7 @@ export default function About() {
         </p>
       </div>
 
-      <div className="grid grid-cols-3 h-[300px] md:h-[400px] lg:h-[500px]">
+      {/* <div className="grid grid-cols-3 h-[300px] md:h-[400px] lg:h-[500px]">
         <div className="relative">
           <Image
             src="/images/aboutus-img1.png"
@@ -40,7 +41,24 @@ export default function About() {
             priority
           />
         </div>
+      </div> */}
+      <div className="grid grid-cols-3 h-[300px] md:h-[400px] lg:h-[500px]">
+        {["aboutus-img1.png", "aboutus-img2.png", "aboutus-img3.png"].map((img, i) => (
+          <div
+            key={i}
+            className="relative group overflow-hidden"
+          >
+            <Image
+              src={`/images/${img}`}
+              alt={`About image ${i + 1}`}
+              fill
+              className="object-cover transform transition-transform duration-700 group-hover:scale-110 opacity-0 animate-fadeIn"
+              priority
+            />
+          </div>
+        ))}
       </div>
+
 
       <div className="w-full px-6 md:px-20 py-16 text-center">
         {/* Vision */}
