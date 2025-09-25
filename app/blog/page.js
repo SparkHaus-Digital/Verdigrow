@@ -31,7 +31,7 @@ export default function Blog() {
               <div className="flex flex-col justify-between md:w-1/2 space-y-3 mt-4 md:mt-0">
                 {/* Tag */}
                 <div>
-                  <span className="bg-secondary text-white text-xs font-sans px-3 py-1 rounded-full w-fit ">
+                  <span className="bg-secondary text-white text-xs font-open px-3 py-1 rounded-full w-fit ">
                     {post.category}
                   </span>
 
@@ -40,7 +40,7 @@ export default function Blog() {
                 </div>
 
 
-                <div className="flex justify-between items-end mt-20 font-sans">
+                <div className="flex justify-between items-end mt-20 font-open">
                   {/* Date */}
                   <p className="text-gray-500 text-lg">{post.date}</p>
 

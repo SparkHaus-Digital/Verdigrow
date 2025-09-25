@@ -8,7 +8,7 @@ export default function QuoteStep2() {
   return (
     <QuoteForm step={2}>
 
-      <h2 className="text-2xl font-sans font-extrabold mb-6 text-primary">
+      <h2 className="text-2xl font-open font-extrabold mb-6 text-primary">
         ORDER INFORMATION
       </h2>
 

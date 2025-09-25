@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function QuoteStep3() {
   return (
     <QuoteForm step={3}>
-      <h2 className="text-2xl font-sans font-extrabold mb-6 text-primary uppercase">
+      <h2 className="text-2xl font-open font-extrabold mb-6 text-primary uppercase">
         Delivery Information
       </h2>
 

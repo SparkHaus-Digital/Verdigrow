@@ -1,8 +1,9 @@
 // components/Footer.jsx
 import Image from "next/image";
+import Link from "next/link";
 import { FaInstagram, FaTwitter, FaFacebookF } from "react-icons/fa";
 import { IoMdMail, IoMdCall, IoLogoWhatsapp } from "react-icons/io";
-import Link from "next/link";
+import { FaArrowUp } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -20,15 +21,17 @@ export default function Footer() {
       
       <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
         {/* Left - Logo & Socials */}
-        <div>
-           <Image
+        <div className="flex flex-col items-start justify-start">
+           {/* <Image
             src="/images/footer-logo.png"
             alt="Verdigrow Logo"
-            width={180} 
-            height={50} 
+            width={280} 
+            height={100} 
             priority
-          />
-          <p className="font-titillium font-semibold text-primary text-2xl mt-1">
+          /> */}
+
+          <h1 className="font-titillium font-bold text-3xl text-primary uppercase">VerdiGrow</h1>
+          <p className="font-open font-semibold text-primary text-xl mt-1">
             GROW | SUSTAIN | THRIVE
           </p>
 
@@ -47,50 +50,58 @@ export default function Footer() {
 
         {/* Middle - Email & Contact */}
         <div>
-          <h3 className="font-titillium font-semibold text-2xl mb-3">EMAIL</h3>
-          <p className="flex items-center gap-2 font-sans font-semibold text-lg text-black">
+          <h3 className="font-titillium font-semibold text-base md:text-xl mb-3">EMAIL</h3>
+          <p className="flex items-center gap-2 font-sans font-semibold text-[12px] md:text-base text-black">
             <IoMdMail className="" /> info@verdigrowglobal.com
           </p>
 
-          <h3 className="font-titillium font-semibold text-2xl mt-6 mb-3">
+          <h3 className="font-titillium font-semibold text-base md:text-xl mt-6 mb-3">
             CONTACT
           </h3>
-          <p className="flex items-center gap-2 font-sans font-semibold text-lg text-black">
+          <p className="flex items-center gap-2 font-sans font-semibold text-[12px] md:text-base text-black">
             <IoMdCall className="" /> +94 11 274 2238
           </p>
-          <p className="flex items-center gap-2 font-sans font-semibold text-lg text-black">
+          <p className="flex items-center gap-2 font-sans font-semibold text-[12px] md:text-base text-black">
             <IoLogoWhatsapp className="" /> +94 11 274 2238
           </p>
         </div>
 
         {/* Right - Address & Buttons */}
         <div>
-          <h3 className="font-titillium font-semibold text-2xl mb-3">
+          <h3 className="font-titillium font-semibold text-base md:text-xl mb-3">
             VERDIGROW GLOBAL
           </h3>
-          <p className="font-sans font-semibold text-lg text-black mb-4">
+          <p className="font-sans font-semibold text-[12px] md:text-base text-black mb-4">
             No. 590, <br/> Athurugiriya Road, Malabe, <br/> Colombo, Sri Lanka.
           </p>
 
-          <div className="space-y-3">
-            <Link
-              href="/contact"
-              className="w-full inline-flex items-center justify-center gap-2 bg-primary text-white font-sans text-xl px-5 py-2 rounded-2xl hover:bg-secondary transition"
-            >
-              Contact
-            </Link>
-            <Link
-              href="/quote"
-              className="w-full inline-flex items-center justify-center gap-2 bg-primary text-white font-sans text-xl px-5 py-2 rounded-2xl hover:bg-secondary transition"
-            >
-              Get a Quote
-            </Link>
-          </div>
+          <div className=" md:flex items-center space-x-2 sm:space-x-4 lg:space-x-6 font-open">
+        <Link
+          href="/contact"
+          className="bg-primary text-background px-3 sm:px-4 md:px-4 lg:px-5 py-1 sm:py-2 rounded-2xl flex items-center gap-1 sm:gap-2 hover:bg-secondary"
+        >
+          Contact
+          <span className="bg-background rounded-full p-1 sm:p-1.">
+            <FaArrowUp className="rotate-40 text-primary text-xs sm:text-sm" />
+          </span>
+        </Link>
+
+        <Link
+          href="/quote"
+          className="bg-primary text-background px-4 py-2 rounded-2xl flex items-center gap-2 whitespace-nowrap hover:bg-secondary"
+        >
+          Get A Quote
+          <span className="bg-background rounded-full p-1">
+            <FaArrowUp className="rotate-40 text-primary" />
+          </span>
+        </Link>
+
+      </div>
         </div>
       </div>
 
       {/* Bottom */}
-      <div className="text-center font-sans text-xl text-black mt-10">
+      <div className="text-center font-sans text-base text-black mt-10">
         <p>© 2025 Verdigrow. All rights reserved.</p>
         <p>
           Powered by <span className="italic font-semibold">Sparkhaus.</span>

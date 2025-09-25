@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function QuoteStep1() {
   return (
     <QuoteForm step={1}>
-      <h2 className="text-2xl font-sans font-extrabold mb-6 text-primary">
+      <h2 className="text-2xl font-open font-extrabold mb-6 text-primary">
         CONTACT INFORMATION
       </h2>
 

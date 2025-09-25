@@ -13,15 +13,13 @@ export default async function BlogDetail({ params }) {
       <h1 className="text-3xl font-titillium font-bold text-primary mb-16">{post.title}</h1>
 
       <div className="flex items-center gap-10 mb-6">
-        <p className="text-gray-500 font-sans text-lg">{post.date}</p>
-        <span className="border-2 border-secondary rounded-full px-3 py-1 text-sm font-sans">
+        <p className="text-gray-500 font-open text-lg">{post.date}</p>
+        <span className="border-2 border-secondary rounded-full px-3 py-1 text-sm font-open">
           {post.category}
         </span>
       </div>
 
-
-
-      <p className="mb-16 font-sans text-justify">{post.introduction}</p>
+      <p className="mb-16 font-open text-justify">{post.introduction}</p>
 
       {/* Featured Image */}
       <div className="w-[75vw] h-72 relative">
@@ -33,7 +31,7 @@ export default async function BlogDetail({ params }) {
         />
       </div>
 
-      <div className="mt-12 font-sans text-justify">
+      <div className="mt-12 font-open text-justify">
         <p>{post.content1}</p>
         <br />
         <p>{post.content2}</p>

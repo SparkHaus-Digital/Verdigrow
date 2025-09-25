@@ -35,7 +35,7 @@ export default function Navbar() {
       </Link>
 
       {/* Desktop Links */}
-      <ul className="hidden md:flex space-x-10 font-sans">
+      <ul className="hidden md:flex space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-10 md:text-[14px] font-open">
         <li className="">
           <Link href="/">Home</Link>
         </li>
@@ -51,20 +51,29 @@ export default function Navbar() {
       </ul>
 
       {/* Desktop Buttons */}
-      <div className="hidden md:flex items-center space-x-4 font-sans">
+      <div className="hidden md:flex items-center space-x-2 sm:space-x-4 lg:space-x-6 font-open">
         <Link
           href="/contact"
-          className="bg-background text-primary px-4 py-2 rounded-2xl flex place-content-between gap-5"
+          className="bg-background text-primary px-3 sm:px-4 md:px-4 lg:px-5 py-1 sm:py-2 rounded-2xl flex items-center gap-1 sm:gap-2"
         >
-          Contact <span className="ml-2"><div className="bg-primary rounded-full p-1"><FaArrowUp className="rotate-40 text-white" /></div></span>
+          Contact
+          <span className="bg-primary rounded-full p-1 sm:p-1.5">
+            <FaArrowUp className="rotate-40 text-white text-xs sm:text-sm" />
+          </span>
         </Link>
+
         <Link
           href="/quote"
-          className="bg-background text-primary px-4 py-2 rounded-2xl flex items-center place-content-between gap-2"
+          className="bg-background text-primary px-4 py-2 rounded-2xl flex items-center gap-2 whitespace-nowrap"
         >
-          Get A Quote <span className="ml-2"><div className="bg-primary rounded-full p-1"><FaArrowUp className="rotate-40 text-white" /></div></span>
+          Get A Quote
+          <span className="bg-primary rounded-full p-1">
+            <FaArrowUp className="rotate-40 text-white" />
+          </span>
         </Link>
+
       </div>
+
 
       {/* Mobile Menu Toggle */}
       <div className="md:hidden">

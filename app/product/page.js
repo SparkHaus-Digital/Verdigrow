@@ -47,7 +47,7 @@ export default function Products() {
     <section className="mt-30 mb-20">
     <div className="p-6 mx-auto max-w-3xl text-center">
       <h1 className="font-sohne font-bold text-[40px] mb-4 text-primary">COCOPEAT GROW BAGS</h1>
-      <p className="font-sans mb-10 text-xl">
+      <p className="font-open mb-10 text-xl">
         Premium quality grow bags available in cocopeat, cocochips, or a custom mix — designed for optimal crop growth and consistency
       </p>
       </div>
@@ -69,7 +69,7 @@ export default function Products() {
       />
     </div>
 
-       <p className="font-sans md:text-lg text-justify">
+       <p className="font-open md:text-lg text-justify">
          <span className="font-bold text-2xl">O</span>ur premium Cocopeat Grow Bags provide ideal root development with high aeration, ensuring uniform growth and stronger plants. They support efficient nutrient uptake and are easy to use in greenhouses or outdoor gardens, making them popular among both beginners and professional growers. <br/>
           <br/> 
 
