@@ -10,11 +10,11 @@ export default function Contact() {
     <div className="mt-30 mb-20">
 
       {/* Main Box */}
-      <div className="w-3/4 mx-auto bg-primary text-white rounded-tr-[100px] rounded-bl-[100px] p-8 flex flex-col-reverse md:flex-row gap-8">
+      <div className="w-3/4 mx-auto bg-primary text-white rounded-tr-[50px] rounded-bl-[50px] md:rounded-tr-[100px] md:rounded-bl-[100px] p-2 md:p-8 flex flex-col-reverse md:flex-row gap-8">
 
         {/* Left Column */}
-        <div className="flex flex-col">
-          <h2 className="font-sohne font-bold text-3xl md:text-[40px] mb-4">
+        <div className="flex flex-col px-2">
+          <h2 className="font-sohne font-bold text-2xl md:text-[40px] mb-4">
             CONTACT US
           </h2>
           <p className="mb-12">No. 590, <br />
@@ -30,7 +30,7 @@ export default function Contact() {
             <FaWhatsapp className="text-lg" /> +94 11 274 2238
           </p>
 
-          <div className="flex gap-4 mt-4 text-2xl md:mt-auto md:justify-start justify-center">
+          <div className="flex gap-4 mb-6 text-xl md:text-3xl md:mt-auto md:justify-start justify-center md:pl-6">
             <FaFacebookF className="hover:text-secondary cursor-pointer" />
             <FaInstagram className="hover:text-secondary cursor-pointer" />
             <FaTiktok className="hover:text-secondary cursor-pointer" />
@@ -40,11 +40,11 @@ export default function Contact() {
 
         {/* Right Column */}
         <div className="md:flex-1 flex justify-center items-center w-full h-64 md:h-auto">
-          <div className="w-full h-full rounded-tr-[50px] rounded-bl-[50px] md:rounded-tr-[100px] md:rounded-bl-[100px] overflow-hidden">
+          <div className="w-full h-full md:rounded-tr-[100px] md:rounded-bl-[100px] overflow-hidden">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.960314839328!2d79.95771127448265!3d6.895350418731521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae250d427687caf%3A0x73b5976c53deb8ae!2s590%20Athurugiriya%20Rd%2C%20Malabe!5e0!3m2!1sen!2slk!4v1758297429916!5m2!1sen!2slk"
               width="100%"
               height="100%"
-              className="border-0"
+              className="border-0 rounded-tr-[50px] rounded-bl-[50px]"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

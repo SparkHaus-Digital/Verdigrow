@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section className="mt-30 mb-20">
+    <section className="mt-30 mb-7 md:mb-20">
       <div className="p-6 mx-auto max-w-3xl text-center">
-        <h1 className="font-sohne font-bold text-[40px] mb-4 text-primary">ABOUT US</h1>
-        <p className="font-sans mb-10 text-xl">
+        <h1 className="font-sohne font-bold text-2xl md:text-[40px] mb-3 md:mb-4 text-primary">ABOUT US</h1>
+        <p className="font-open mb-10 text-sm md:text-xl">
           VerdiGrow is a Sri Lankan company with deep roots in coconut plantations. We source raw materials from the lush Coconut Triangle, renowned for its thriving coconut groves, and manage our operations from Colombo, with production facilities in Dambadeniya and Kuliyapitiya.
         </p>
       </div>
@@ -42,7 +42,7 @@ export default function About() {
           />
         </div>
       </div> */}
-      <div className="grid grid-cols-3 h-[300px] md:h-[400px] lg:h-[500px]">
+      <div className="grid grid-cols-3 h-[200px] md:h-[400px] lg:h-[500px]">
         {["aboutus-img1.png", "aboutus-img2.png", "aboutus-img3.png"].map((img, i) => (
           <div
             key={i}
@@ -60,14 +60,14 @@ export default function About() {
       </div>
 
 
-      <div className="w-full px-6 md:px-20 py-16 text-center">
+      <div className="w-full px-6 md:px-20 py-6 text-center">
         {/* Vision */}
-        <div className="mb-10">
+        <div className="mb-6 md:mb-10">
           <h2 className="font-titillium text-2xl md:text-3xl font-bold text-primary inline-block border-b-4 border-secondary pb-1">
             OUR VISION
           </h2>
 
-          <p className="font-sans max-w-3xl mx-auto text-gray-700 mt-4">
+          <p className="font-open max-w-3xl mx-auto text-gray-700 mt-4">
             To be a global leader in sustainable cocopeat solutions, empowering
             agricultural communities and promoting eco-conscious cultivation
             worldwide.
@@ -75,11 +75,11 @@ export default function About() {
         </div>
 
         {/* Mission */}
-        <div className="mb-16">
+        <div className="mb-15 md:mb-16">
           <h2 className="font-titillium text-2xl md:text-3xl font-bold text-primary inline-block border-b-4 border-secondary pb-1">
             OUR MISSION
           </h2>
-          <p className="font-sans max-w-3xl mx-auto text-gray-700 mt-4">
+          <p className="font-open max-w-3xl mx-auto text-gray-700 mt-4">
             To deliver premium, eco-friendly growing media by combining traditional
             Sri Lankan expertise with modern production practices. We are committed
             to quality, sustainability, and community upliftment—from coconut grove
