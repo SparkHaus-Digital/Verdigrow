@@ -21,6 +21,9 @@ const openSans = Open_Sans({
 export const metadata = {
   title: "VerdiGrow",
   description: "Empowering farmers with cocopeat for healthier, greener growth.",
+  icons: {
+    icon: "/images/icon.ico", // or "/favicon.png"
+  },
 };
 
 
