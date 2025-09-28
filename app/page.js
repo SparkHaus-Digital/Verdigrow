@@ -50,7 +50,7 @@ export default function Home() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
             >
-              Empowering farmers with cocopeat for healthier, greener growth
+              Your harvest, Your way
             </motion.p>
           </div>
 

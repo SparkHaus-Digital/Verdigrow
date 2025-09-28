@@ -1,88 +1,102 @@
-// app/quote/step1/page.jsx
 "use client";
 import QuoteForm from "@/components/QuoteForm";
-import { FaChevronDown } from "react-icons/fa6";
-import Link from "next/link";
+import { useQuote } from "@/app/quote/QuoteContext";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
 export default function QuoteStep2() {
+  const router = useRouter();
+  const { formData, updateFormData } = useQuote();
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      product: "",
+      quantity: "",
+      notes: "",
+    },
+  });
+
+  // Reset form values whenever formData changes
+  useEffect(() => {
+    reset({
+      product: formData.product || "",
+      quantity: formData.quantity || "",
+      notes: formData.notes || "",
+    });
+  }, [formData, reset]);
+
+  const onSubmit = (data) => {
+    updateFormData(data); // save to context
+    router.push("/quote/step3");
+  };
+
   return (
     <QuoteForm step={2}>
-
-      <h2 className="text-2xl font-open font-extrabold mb-6 text-primary">
-        ORDER INFORMATION
-      </h2>
-
-      <form className="space-y-6 uppercase">
-
-        {/* ProductName */}
-        <div className="relative">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Product Name
-          </label>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        {/* Product */}
+        <div>
+          <label className="block text-sm mb-1">PRODUCT NAME</label>
           <select
-            className="w-full p-2 border rounded bg-background appearance-none"
+            {...register("product", { required: "Product is required" })}
+            className={`w-full p-2 border rounded ${errors.product ? "border-red-500" : "border-gray-800"
+              }`}
           >
             <option value="" disabled>
               Select a product
             </option>
-            <option value="product1">Cocopeat Grow Bags</option>
+            <option value="Cocopeat Grow Bags">Cocopeat Grow Bags</option>
+            <option value="Private Label - Retail">Private Label - Retail</option>
           </select>
-
-          <span className="absolute right-3 top-9 pointer-events-none text-black">
-            <FaChevronDown size={16} />
-          </span>
+          {errors.product && (
+            <p className="text-red-500 text-sm mt-1">{errors.product.message}</p>
+          )}
         </div>
 
-        {/* Estimated Quantity */}
-        <div className="relative">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Estimated Quantity
-          </label>
-          <select
-            className="w-full p-2 border rounded bg-background appearance-none"
-          >
-            <option value="" disabled>
-              Select Quantity
-            </option>
-            <option value="quantity1">5 KG</option>
-            <option value="quantity1">10 KG</option>
-            <option value="quantity1">20 KG</option>
-          </select>
-
-          <span className="absolute right-3 top-9 pointer-events-none text-black">
-            <FaChevronDown size={16} />
-          </span>
-        </div>
-
-        {/* Additional Notes */}
+        {/* Quantity */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            ADDITIONAL NOTES <span className="italc text-gray-500">(Optional)</span>
-          </label>
+          <label className="block text-sm mb-1">QUANTITY</label>
           <input
             type="text"
-            className="w-full p-2 border rounded"
+            {...register("quantity", { required: "Quantity is required" })}
+            className={`w-full p-2 border rounded ${errors.quantity ? "border-red-500" : "border-gray-800"
+              }`}
+          />
+          {errors.quantity && (
+            <p className="text-red-500 text-sm mt-1">{errors.quantity.message}</p>
+          )}
+        </div>
+
+        {/* Notes */}
+        <div>
+          <label className="block text-sm mb-1">ADDITIONAL NOTES</label>
+          <input
+            type="text"
+            {...register("notes")}
+            className="w-full p-2 border rounded border-gray-800"
           />
         </div>
 
-        {/* Next Button */}
-        <div>
-          <Link
-            href="/quote/step3"
-            className="block bg-primary text-white text-center px-6 py-2 rounded-md hover:bg-primary/90 transition"
+        {/* Buttons */}
+        <div className="space-y-2">
+          <button
+            type="submit"
+            className="w-full bg-primary text-white px-6 py-2 rounded-md"
           >
             Next Section
-          </Link>
-        </div>
-
-        {/* Back Button */}
-        <div>
-          <Link
-            href="/quote"
-            className="block bg-primary text-white text-center px-6 py-2 rounded-md hover:bg-primary/90 transition"
+          </button>
+          <button
+            type="button"
+            onClick={() => router.push("/quote")}
+            className="w-full bg-primary text-white px-6 py-2 rounded-md"
           >
             Back
-          </Link>
+          </button>
         </div>
       </form>
     </QuoteForm>
