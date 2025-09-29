@@ -1,56 +1,19 @@
 "use client"
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { TextPlugin } from "gsap/TextPlugin";
 import { FaCheckCircle } from "react-icons/fa";
-
-gsap.registerPlugin(TextPlugin);
+import AnimatedText from "@/components/AnimatedText";
+import AnimatedImage from "@/components/AnimatedImage";
 
 
 export default function Products() {
-  const containerRef1 = useRef(null);
-  const imageRef1 = useRef(null);
-  const containerRef2 = useRef(null);
-  const imageRef2 = useRef(null);
-
-  useEffect(() => {
-    const addHoverAnimation = (container, image) => {
-      if (!container || !image) return;
-
-      const handleMouseEnter = () => {
-        gsap.to(image, { scale: 1.05, duration: 0.4, ease: "power3.out" });
-      };
-
-      const handleMouseLeave = () => {
-        gsap.to(image, { scale: 1, duration: 0.4, ease: "power3.out" });
-      };
-
-      container.addEventListener("mouseenter", handleMouseEnter);
-      container.addEventListener("mouseleave", handleMouseLeave);
-
-      return () => {
-        container.removeEventListener("mouseenter", handleMouseEnter);
-        container.removeEventListener("mouseleave", handleMouseLeave);
-      };
-    };
-
-    const cleanup1 = addHoverAnimation(containerRef1.current, imageRef1.current);
-    const cleanup2 = addHoverAnimation(containerRef2.current, imageRef2.current);
-
-    return () => {
-      cleanup1 && cleanup1();
-      cleanup2 && cleanup2();
-    };
-  }, []);
-
-
   return (
     <section className="mt-30 mb-7 lg:mb-20 font-open ">
       <div className="mb-10">
         <div className="p-6 mx-auto max-w-3xl text-center">
-          <h1 className="font-sohne font-bold text-[20px] md:text-[40px] mb-3 md:mb-4 text-primary">COCOPEAT GROW BAGS</h1>
+          <h1 className="font-sohne font-bold text-[20px] md:text-[40px] mb-3 md:mb-4 text-primary">
+            <AnimatedText text="COCOPEAT GROW BAGS" />
+          </h1>
           <p className="font-open mb-6 md:mb-10 text-[16px] md:text-xl">
             Our high-performance <span className="font-black">coconut substrate grow bags</span>  are the perfect solution for hydroponic
             growers, greenhouses, and commercial farms. Designed to deliver exceptional results, our grow
@@ -59,13 +22,10 @@ export default function Products() {
         </div>
 
         <div className="mx-auto w-[75%]">
-          {/* Image with Hover Zoom */}
           <div
-            ref={containerRef1}
             className="relative aspect-[4/3] lg:aspect-[3/1] mb-6 md:mb-10 overflow-hidden rounded-tr-[50px] rounded-bl-[50px] md:rounded-tr-[100px] md:rounded-bl-[100px] shadow-md border-2 border-amber-600"
           >
-            <Image
-              ref={imageRef1}
+            <AnimatedImage
               src="/images/products.jpg"
               alt="Cocopeat Grow Bags"
               fill
@@ -139,7 +99,9 @@ export default function Products() {
 
       <div className="border-t">
         <div className="p-6 mx-auto max-w-3xl text-center">
-          <h1 className="font-sohne font-bold text-[20px] md:text-[40px] mb-3 md:mb-4 text-primary uppercase">Private label – retail</h1>
+          <h1 className="font-sohne font-bold text-[20px] md:text-[40px] mb-3 md:mb-4 text-primary">
+            <AnimatedText text="PRIVATE LABEL - RETAIL" />
+          </h1>
           <p className="font-open mb-6 md:mb-10 text-[16px] md:text-xl">
             Looking to sell high-quality substrates under your own brand? <br />
             We’ll work with you to define your exact requirements and
@@ -148,13 +110,10 @@ export default function Products() {
         </div>
 
         <div className="mx-auto w-[75%]">
-          {/* Image with Hover Zoom */}
           <div
-            ref={containerRef2}
             className="relative aspect-[4/3] lg:aspect-[3/1] mb-6 md:mb-10 overflow-hidden rounded-tr-[50px] rounded-bl-[50px] md:rounded-tr-[100px] md:rounded-bl-[100px] shadow-md border-2 border-amber-600"
           >
-            <Image
-              ref={imageRef2}
+            <AnimatedImage
               src="/images/blog-img2.jpg"
               alt="Cocopeat Grow Bags"
               fill

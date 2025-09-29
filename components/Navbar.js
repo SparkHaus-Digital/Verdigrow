@@ -50,11 +50,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-9/10 rounded-full flex justify-between items-center px-6 py-2 transition-colors duration-600 ${
-        scrolled
-          ? "bg-[#095920] text-background"
-          : "bg-[#095920]/30 backdrop-blur-md border border-white/30 text-background"
-      }`}
+      className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-9/10 rounded-full flex justify-between items-center px-6 py-2 transition-colors duration-600 ${scrolled
+        ? "bg-[#095920] text-background"
+        : "bg-[#095920]/30 backdrop-blur-md border border-white/30 text-background"
+        }`}
     >
       {/* Logo */}
       <Link href="/">
@@ -62,7 +61,7 @@ export default function Navbar() {
       </Link>
 
       {/* Desktop Links */}
-      <ul className="hidden md:flex space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-10 md:text-[14px] font-open">
+      <ul className="hidden md:flex space-x-4 sm:space-x-2 md:space-x-4 lg:space-x-10 md:text-[14px] font-open">
         <li><Link href="/">Home</Link></li>
         <li><Link href="/product">Product</Link></li>
         <li><Link href="/about">About</Link></li>
@@ -71,20 +70,29 @@ export default function Navbar() {
 
       {/* Desktop Buttons */}
       <div className="hidden md:flex items-center space-x-2 sm:space-x-4 lg:space-x-6 font-open">
-        <Link href="/contact" className="bg-background text-primary px-3 sm:px-4 md:px-4 lg:px-5 py-1 sm:py-2 rounded-2xl flex items-center gap-1 sm:gap-2">
+        {/* Contact Button */}
+        <Link
+          href="/contact"
+          className="group bg-background text-primary px-3 sm:px-4 md:px-4 lg:px-5 py-1 sm:py-2 rounded-2xl flex items-center gap-1 sm:gap-2 hover:bg-primary hover:text-background transition duration-300"
+        >
           Contact
-          <span className="bg-primary rounded-full p-1 sm:p-1.5">
-            <FaArrowUp className="rotate-40 text-white text-xs sm:text-sm" />
+          <span className="rounded-full p-1 sm:p-1.5 bg-primary group-hover:bg-background transition duration-300 flex items-center justify-center">
+            <FaArrowUp className="rotate-40 text-white group-hover:text-primary group-hover:rotate-[90deg] transition-transform duration-300 text-xs sm:text-sm" />
           </span>
         </Link>
 
-        <Link href="/quote" className="bg-background text-primary px-4 py-2 rounded-2xl flex items-center gap-2 whitespace-nowrap">
-          Get A Quote
-          <span className="bg-primary rounded-full p-1">
-            <FaArrowUp className="rotate-40 text-white" />
+        {/* Get A Quote Button */}
+        <Link
+          href="/quote"
+          className="group bg-background text-primary px-4 py-2 rounded-2xl flex items-center gap-2 whitespace-nowrap hover:bg-primary hover:text-background transition duration-300"
+        >
+          Get a Quote
+          <span className="bg-primary rounded-full p-1 group-hover:bg-background transition duration-300 flex items-center justify-center">
+            <FaArrowUp className="rotate-40 text-white group-hover:text-primary group-hover:rotate-[90deg] transition-transform duration-300" />
           </span>
         </Link>
       </div>
+
 
       {/* Mobile Menu Toggle */}
       <div className="md:hidden">

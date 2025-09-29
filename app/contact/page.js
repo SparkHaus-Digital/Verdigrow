@@ -4,6 +4,7 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import AnimatedText from "@/components/AnimatedText";
 
 export default function Contact() {
   return (
@@ -15,7 +16,7 @@ export default function Contact() {
         {/* Left Column */}
         <div className="flex flex-col px-2">
           <h2 className="font-sohne font-bold text-2xl md:text-[40px] mb-4">
-            CONTACT US
+            <AnimatedText text="CONTACT US" />
           </h2>
           <p className="mb-12">No. 590, <br />
             Athurugiriya Road, Malabe, <br />

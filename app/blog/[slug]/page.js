@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { posts } from "../data";
+import AnimatedImage from "@/components/AnimatedImage";
 
 export default async function BlogDetail({ params }) {
   const { slug } = await params;
@@ -22,12 +23,12 @@ export default async function BlogDetail({ params }) {
       <p className="mb-16 font-open text-justify">{post.introduction}</p>
 
       {/* Featured Image */}
-      <div className="w-[75vw] h-72 relative">
-        <Image
+      <div className="w-[75vw] h-72 relative overflow-hidden rounded-tr-[100px] rounded-bl-[100px] border-2 border-secondary">
+        <AnimatedImage
           src={post.image}
           alt={post.title}
           fill
-          className="rounded-tr-[100px] rounded-bl-[100px] border-2 border-secondary object-cover w-full"
+          className="object-cover w-full"
         />
       </div>
 

@@ -1,47 +1,20 @@
 import Image from "next/image";
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";
-import { motion } from "framer-motion";
+import AnimatedText from "@/components/AnimatedText";
 
 export default function About() {
   return (
     <section className="mt-30 mb-7 md:mb-20">
       <div className="p-6 mx-auto max-w-3xl text-center">
-        <h1 className="font-sohne font-bold text-2xl md:text-[40px] mb-3 md:mb-4 text-primary">ABOUT US</h1>
+        <h1 className="font-sohne font-bold text-2xl md:text-[40px] mb-3 md:mb-4 text-primary">
+          <AnimatedText text="ABOUT US" />
+        </h1>
         <p className="font-open mb-10 text-sm md:text-xl">
           VerdiGrow is a Sri Lankan company with deep roots in coconut plantations. We source raw materials from the lush Coconut Triangle, renowned for its thriving coconut groves, and manage our operations from Colombo, with production facilities in Dambadeniya and Kuliyapitiya.
         </p>
       </div>
 
-      {/* <div className="grid grid-cols-3 h-[300px] md:h-[400px] lg:h-[500px]">
-        <div className="relative">
-          <Image
-            src="/images/aboutus-img1.png"
-            alt="Farm field"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div className="relative">
-          <Image
-            src="/images/aboutus-img2.png"
-            alt="Flowers"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div className="relative">
-          <Image
-            src="/images/aboutus-img3.png"
-            alt="Farm landscape"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-      </div> */}
       <div className="grid grid-cols-3 h-[200px] md:h-[400px] lg:h-[500px]">
         {["aboutus-img1.png", "aboutus-img2.png", "aboutus-img3.png"].map((img, i) => (
           <div
@@ -68,10 +41,9 @@ export default function About() {
           </h2>
 
           <p className="font-open max-w-3xl mx-auto text-gray-700 mt-4">
-            To be a global leader in sustainable cocopeat solutions, empowering
-            agricultural communities and promoting eco-conscious cultivation
-            worldwide.
+            <AnimatedText text="To be a global leader in sustainable cocopeat solution empowering agricultural communities and promoting eco-conscious cultivation worldwide." speed={0.019} />
           </p>
+
         </div>
 
         {/* Mission */}
@@ -80,10 +52,9 @@ export default function About() {
             OUR MISSION
           </h2>
           <p className="font-open max-w-3xl mx-auto text-gray-700 mt-4">
-            To deliver premium, eco-friendly growing media by combining traditional
-            Sri Lankan expertise with modern production practices. We are committed
-            to quality, sustainability, and community upliftment—from coconut grove
-            to global greenhouse.
+
+            <AnimatedText text="To deliver premium, eco-friendly growing media by combining traditional Sri Lankan expertise with modern production practices. We are committed to quality, sustainability, and community upliftment from coconut grove
+            to global greenhouse." speed={0.019} />
           </p>
         </div>
 

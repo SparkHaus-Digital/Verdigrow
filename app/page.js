@@ -1,25 +1,54 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import TaglineSection from "@/components/TaglineSection";
 import RotatingCircle from "@/components/RotatingCircle";
 import { IoMdArrowForward } from "react-icons/io";
-
 import { TiLeaf } from "react-icons/ti";
 import { GrGroup } from "react-icons/gr";
 import { GiRecycle } from "react-icons/gi";
-import { HiOutlineCheckCircle } from "react-icons/hi";
+import { HiOutlineCheckCircle, HiOutlineCube } from "react-icons/hi";
 import { IoSettingsOutline } from "react-icons/io5";
-import { HiOutlineCube } from "react-icons/hi";
-
-// modal view icon
-import { HiOutlineCheckBadge } from "react-icons/hi2";
-
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ProductCard from "@/components/ProductCard";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Home() {
+  const featuresRef = useRef([]);
+  const sectionRef = useRef(null);
+
+  const features = [
+    { title: "100% Eco Friendly", desc: "Produced from natural , renewable coconut husks", icon: <TiLeaf className="w-8 h-8 sm:w-12 sm:h-12 text-primary" /> },
+    { title: "Committees to sustainability", desc: "Focused on long-term environmental impact.", icon: <GiRecycle className="w-8 h-8 sm:w-12 sm:h-12 text-primary" /> },
+    { title: "Empowering Communities", desc: "supporting Sri Lanka’s coconut farming families.", icon: <GrGroup className="w-8 h-8 sm:w-12 sm:h-12 text-primary" /> },
+    { title: "Reliable Quality Control", desc: "Tested at every stage for consistent quality.", icon: <HiOutlineCheckCircle className="w-8 h-8 sm:w-12 sm:h-12 text-primary" /> },
+    { title: "Customizable Solutions", desc: "Sizes, blends, and packaging made to order.", icon: <IoSettingsOutline className="w-8 h-8 sm:w-12 sm:h-12 text-primary" /> },
+    { title: "Sample Availability", desc: "Request samples before placing bulk orders.", icon: <HiOutlineCube className="w-8 h-8 sm:w-12 sm:h-12 text-primary" /> },
+  ];
+
+  useEffect(() => {
+    if (featuresRef.current.length) {
+      gsap.from(featuresRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none", // animate once
+        },
+      });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Landing Section */}
@@ -32,8 +61,7 @@ export default function Home() {
           backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute bottom-10 md:bottom-20 left-0 right-0 flex flex-col md:flex-row md:justify-between items-start md:items-center max-w-6xl mx-auto px-4 md:px-6 gap-6"
-        >
+        <div className="absolute bottom-10 md:bottom-20 left-0 right-0 flex flex-col md:flex-row md:justify-between items-start md:items-center max-w-6xl mx-auto px-4 md:px-6 gap-6">
           <div className="text-left">
             <motion.h1
               className="text-3xl sm:text-4xl md:text-6xl text-white leading-tight font-sohne"
@@ -46,7 +74,7 @@ export default function Home() {
             </motion.h1>
 
             <motion.p
-              className="font-open font-normal text-base sm:ext-lg mt-2 text-gray-100 "
+              className="font-open font-normal text-base sm:text-lg mt-2 text-gray-100 "
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
@@ -63,8 +91,6 @@ export default function Home() {
         </div>
       </section>
 
-
-
       {/* Animated Tagline Section */}
       <TaglineSection className="" />
 
@@ -72,7 +98,7 @@ export default function Home() {
       <ProductCard />
 
       {/* Why Choose Us Section */}
-      <section className="px-8 md:px-12 my-20 md:mx-12">
+      <section className="px-8 md:px-12 my-20 md:mx-12" ref={sectionRef}>
         <div className="border-2 border-secondary rounded-tr-[75px] rounded-bl-[75px] md:rounded-tr-[100px] md:rounded-bl-[100px] pt-12 pb-12 px-4 md:px-10 relative">
           <div className="flex justify-between items-start">
             <div className="pb-10">
@@ -81,33 +107,26 @@ export default function Home() {
                 <span className="font-titillium text-primary font-semibold">Because quality matters:</span> our grow bags are crafted with EC, pH, moisture, <br /> and sand testing for consistent crop success.
               </p>
             </div>
-            {/* Rotating animation in top right */}
             <div className="hidden lg:block absolute top-4 right-8">
               <RotatingCircle />
             </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10">
-            {[
-              { title: "100% Eco Friendly", desc: "Produced from natural , renewable coconut husks", icon: <TiLeaf className="w-8 h-8 sm:w-12 sm:h-12  text-primary" /> },
-              { title: "Committees to sustainability", desc: "Focused on long-term environmental impact.", icon: <GiRecycle className="w-8 h-8 sm:w-12 sm:h-12  text-primary" /> },
-              { title: "Empowering Communities", desc: "supporting Sri Lanka’s coconut farming families.", icon: <GrGroup className="w-8 h-8 sm:w-12 sm:h-12  text-primary" /> },
-              { title: "Reliable Quality Control", desc: "Tested at every stage for consistent quality.", icon: <HiOutlineCheckCircle className="w-8 h-8 sm:w-12 sm:h-12  text-primary" /> },
-              { title: "Customizable Solutions", desc: "Sizes, blends, and packaging made to order.", icon: <IoSettingsOutline className="w-8 h-8 sm:w-12 sm:h-12  text-primary" /> },
-              { title: "Sample Availability", desc: "Request samples before placing bulk orders.", icon: <HiOutlineCube className="w-8 h-8 sm:w-12 sm:h-12  text-primary" /> },
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center">
+            {features.map((item, i) => (
+              <div
+                key={i}
+                ref={(el) => (featuresRef.current[i] = el)}
+                className="flex flex-col items-center text-center"
+              >
                 <div className="pb-2">{item.icon}</div>
-
                 <h3 className="font-open font-semibold text-base md:text-xl pb-2">{item.title}</h3>
                 <p className="font-open text-sm md:text-lg text-center text-gray-600">{item.desc}</p>
               </div>
-
             ))}
           </div>
         </div>
       </section>
     </div>
-
   );
 }

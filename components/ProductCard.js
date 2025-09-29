@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import AnimatedImage from "./AnimatedImage"
 
 const products = [
   {
@@ -34,7 +35,7 @@ export default function ProductCard() {
         {products.map((product) => (
           <div
             key={product.id}
-            className="bg-primary rounded-xl p-6 text-white flex flex-col w-full h-[400px]"
+            className="bg-primary rounded-xl p-6 text-white flex flex-col w-full h-[400px] border-1 border-secondary"
           >
             {/* Title */}
             <h3 className="font-titillium text-base md:text-lg font-semibold uppercase mb-3">
@@ -55,13 +56,13 @@ export default function ProductCard() {
             </Link>
 
             {/* Image pinned to bottom */}
-            <div className="mt-4">
-              <Image
+            <div className="mt-4 overflow-hidden border border-secondary rounded-lg">
+              <AnimatedImage
                 src={product.image}
                 alt={product.title}
                 width={250}
                 height={250}
-                className="rounded-lg object-cover w-full h-40 md:h-48"
+                className="object-cover w-full h-40 md:h-48"
               />
             </div>
           </div>
