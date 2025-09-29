@@ -89,7 +89,7 @@ export default function About() {
 
         {/* CEO section */}
         <div className="grid md:grid-cols-2 gap-10 items-center max-w-5xl mx-auto">
-          <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden shadow-lg border-2 border-secondary">
+          <div className="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg border-2 border-secondary">
             <Image
               src="/images/ceo.png"
               alt="CEO"

@@ -17,6 +17,7 @@ import { HiOutlineCheckBadge } from "react-icons/hi2";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import ProductCard from "@/components/ProductCard";
 
 export default function Home() {
   return (
@@ -68,27 +69,7 @@ export default function Home() {
       <TaglineSection className="" />
 
       {/* Product Section */}
-      <section className="px-8 md:px-12 my-20 md:mx-12">
-        <h2 className="font-titillium font-semibold text-3xl mb-10 text-left">PRODUCTS</h2>
-       <div className="bg-primary rounded-lg p-6 flex flex-col md:flex-row items-center text-white gap-6 md:gap-12">
-
-          <div className="flex-1 space-y-4">
-            <h3 className="font-heading text-xl">COCOPEAT GROW BAGS</h3>
-            <p className="font-open text-sm md:text-base">
-              High-yield, eco-smart grow bags <br />for greenhouse and hydroponic success.
-            </p>
-            <Link
-              href="/product"
-              className="inline-block bg-secondary px-6 py-2 mt-4 rounded-2xl font-body hover:bg-background hover:text-primary transition duration-500 ease-in-out uppercase text-base md:text-lg"
-            >
-              Discover More
-            </Link>
-          </div>
-          <div className="flex-1 flex justify-center md:justify-end">
-            <Image src="/images/product-sample.png" alt="Cocopeat Grow Bags" height={400} width={400} className="rounded-lg" />
-          </div>
-        </div>
-      </section>
+      <ProductCard />
 
       {/* Why Choose Us Section */}
       <section className="px-8 md:px-12 my-20 md:mx-12">

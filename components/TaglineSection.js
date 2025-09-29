@@ -38,22 +38,22 @@ export default function TaglineSection() {
       className="px-8 md:px-24 my-10 sm:my-16 md:my-20 overflow-hidden"
     >
       <h1 className="font-sohne font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary leading-snug">
-        <span className="word inline-block">FROM</span>{" "}
-        <span className="word inline-block">LOCAL</span>{" "}
-        <span className="word inline-block">GROWERS</span>{" "}
-        <span className="word inline-block">TO</span>{" "}
-        <span className="word inline-block text-secondary">INTERNATIONAL</span>{" "}
-        <span className="word inline-block">BUYERS,</span>{" "}
-        <span className="word inline-block">OUR</span>{" "}
-        <span className="word inline-block">ECO-FRIENDLY</span>{" "}
-        <span className="word inline-block text-secondary">COCOPEAT</span>{" "}
-        <span className="word inline-block">IS</span>{" "}
-        <span className="word inline-block">MAKING</span>{" "}
-        <span className="word inline-block">IT&apos;S</span>{" "}
-        <span className="word inline-block">MARK</span>{" "}
+        <span className="word inline-block">ENGINEERED</span>{" "}
+        <span className="word inline-block">GROW</span>{" "}
+        <span className="word inline-block">BAGS</span>{" "}
+        <span className="word inline-block">DESIGNED</span>{" "}
+        <span className="word inline-block">FOR</span>{" "}
+        <span className="word inline-block text-secondary">HYDROPONIC</span>{" "}
+        <span className="word inline-block text-secondary">CROPS,</span>{" "}
+        <span className="word inline-block">IN</span>{" "}
+        <span className="word inline-block text-secondary">GREENHOUSES</span>{" "}
+        <span className="word inline-block">OR</span>{" "}
+        <span className="word inline-block text-secondary">INDOOR</span>{" "}
+        <span className="word inline-block text-secondary">SETUPS.</span>{" "}
+        {/* <span className="word inline-block">MARK</span>{" "}
         <span className="word inline-block text-secondary">ACROSS</span>{" "}
         <span className="word inline-block text-secondary">THE</span>{" "}
-        <span className="word inline-block text-secondary">GLOBE.</span>
+        <span className="word inline-block text-secondary">GLOBE.</span> */}
       </h1>
     </section>
   );
