@@ -6,22 +6,34 @@ import Image from "next/image";
 import { FaArrowUp } from "react-icons/fa";
 import { CiGrid41 } from "react-icons/ci";
 import { gsap } from "gsap";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const pathname = usePathname();
 
-  // Scroll effect
+  // Scroll effect only for Home and Quote pages
   useEffect(() => {
-    const handleScroll = () => {
-      const threshold = window.innerHeight * 0.7;
-      setScrolled(window.scrollY > threshold);
-    };
+    if (pathname === "/" || pathname === "/quote") {
+      const handleScroll = () => {
+        // ✅ Different threshold for quote page
+        const threshold =
+          pathname === "/quote"
+            ? window.innerHeight * 0.3 // 10% of viewport height
+            : window.innerHeight * 0.7; // 70% for home
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+        setScrolled(window.scrollY > threshold);
+      };
+
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    } else {
+      // ✅ force solid navbar on other pages
+      setScrolled(true);
+    }
+  }, [pathname]);
 
   // GSAP animation for mobile menu
   useEffect(() => {
@@ -51,21 +63,34 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-9/10 rounded-full flex justify-between items-center px-6 py-2 transition-colors duration-600 ${scrolled
-        ? "bg-[#095920] text-background"
-        : "bg-[#095920]/30 backdrop-blur-md border border-white/30 text-background"
+          ? "bg-[#095920] text-background"
+          : "bg-[#095920]/30 backdrop-blur-md border border-white/30 text-background"
         }`}
     >
       {/* Logo */}
       <Link href="/">
-        <Image src="/images/verdigrow-logo.png" alt="VerdiGrow" height={32} width={120} />
+        <Image
+          src="/images/verdigrow-logo.png"
+          alt="VerdiGrow"
+          height={32}
+          width={120}
+        />
       </Link>
 
       {/* Desktop Links */}
       <ul className="hidden md:flex space-x-4 sm:space-x-2 md:space-x-4 lg:space-x-10 md:text-[14px] font-open">
-        <li><Link href="/">Home</Link></li>
-        <li><Link href="/product">Product</Link></li>
-        <li><Link href="/about">About</Link></li>
-        <li><Link href="/blog">Blog</Link></li>
+        <li>
+          <Link href="/">Home</Link>
+        </li>
+        <li>
+          <Link href="/product">Product</Link>
+        </li>
+        <li>
+          <Link href="/about">About</Link>
+        </li>
+        <li>
+          <Link href="/blog">Blog</Link>
+        </li>
       </ul>
 
       {/* Desktop Buttons */}
@@ -93,7 +118,6 @@ export default function Navbar() {
         </Link>
       </div>
 
-
       {/* Mobile Menu Toggle */}
       <div className="md:hidden">
         <button
@@ -112,13 +136,20 @@ export default function Navbar() {
       >
         {["Home", "Product", "About", "Blog"].map((item) => (
           <li key={item}>
-            <Link href={item === "Home" ? "/" : `/${item.toLowerCase()}`} onClick={() => setMenuOpen(false)}>
+            <Link
+              href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+              onClick={() => setMenuOpen(false)}
+            >
               {item}
             </Link>
           </li>
         ))}
         <li>
-          <Link href="/contact" onClick={() => setMenuOpen(false)} className="bg-background text-primary px-4 py-2 rounded-2xl flex items-left gap-2">
+          <Link
+            href="/contact"
+            onClick={() => setMenuOpen(false)}
+            className="bg-background text-primary px-4 py-2 rounded-2xl flex items-left gap-2"
+          >
             Contact
             <div className="bg-primary rounded-full p-1">
               <FaArrowUp className="rotate-40 text-white" />
@@ -126,7 +157,11 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link href="/quote" onClick={() => setMenuOpen(false)} className="bg-background text-primary px-4 py-2 rounded-2xl flex items-center justify-center gap-2">
+          <Link
+            href="/quote"
+            onClick={() => setMenuOpen(false)}
+            className="bg-background text-primary px-4 py-2 rounded-2xl flex items-center justify-center gap-2"
+          >
             Get A Quote
             <div className="bg-primary rounded-full p-1">
               <FaArrowUp className="rotate-40 text-white" />
