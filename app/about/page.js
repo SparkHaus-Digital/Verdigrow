@@ -32,10 +32,9 @@ export default function About() {
         ))}
       </div>
 
-
-      <div className="w-full px-6 md:px-20 py-6 text-center">
+      <div className="w-full px-6 md:px-20 pt-20 text-center">
         {/* Vision */}
-        <div className="mb-6 md:mb-10">
+        <div className="mb-15 md:mb-16">
           <h2 className="font-titillium text-2xl md:text-3xl font-bold text-primary inline-block border-b-4 border-secondary pb-1">
             OUR VISION
           </h2>
@@ -47,7 +46,7 @@ export default function About() {
         </div>
 
         {/* Mission */}
-        <div className="mb-15 md:mb-16">
+        <div className="mb-20 md:mb-20">
           <h2 className="font-titillium text-2xl md:text-3xl font-bold text-primary inline-block border-b-4 border-secondary pb-1">
             OUR MISSION
           </h2>

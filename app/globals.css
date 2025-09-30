@@ -87,6 +87,7 @@
   --color-background: #FDFFF5;
   --color-primary: #054C2E;
   --color-secondary: #E47839;
+  --color-tertiary: #42CD36;
   --radius-custom-lg: 0.5rem;
 
   --font-sohne: "SohneBreit", sans-serif;
@@ -123,3 +124,13 @@ body {
   width: 50px;
   height: 50px;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease forwards;
+}
+

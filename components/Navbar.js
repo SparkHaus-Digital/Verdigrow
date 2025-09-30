@@ -39,14 +39,23 @@ export default function Navbar() {
   useEffect(() => {
     if (menuRef.current) {
       if (menuOpen) {
-        gsap.to(menuRef.current, {
-          height: "auto",
-          opacity: 1,
-          duration: 0.5,
-          ease: "power3.out",
-          display: "flex",
-        });
+        // Opening animation
+        gsap.set(menuRef.current, { display: "flex" }); // make it visible
+        gsap.fromTo(
+          menuRef.current,
+          { height: 0, opacity: 0 },
+          {
+            height: menuRef.current.scrollHeight, // animate to natural height
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.out",
+            onComplete: () => {
+              gsap.set(menuRef.current, { height: "auto" }); // reset for flexibility
+            },
+          }
+        );
       } else {
+        // Closing animation
         gsap.to(menuRef.current, {
           height: 0,
           opacity: 0,
@@ -60,11 +69,12 @@ export default function Navbar() {
     }
   }, [menuOpen]);
 
+
   return (
     <nav
       className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-9/10 rounded-full flex justify-between items-center px-6 py-2 transition-colors duration-600 ${scrolled
-          ? "bg-[#095920] text-background"
-          : "bg-[#095920]/30 backdrop-blur-md border border-white/30 text-background"
+        ? "bg-[#095920] text-background"
+        : "bg-[#095920]/30 backdrop-blur-md border border-white/30 text-background"
         }`}
     >
       {/* Logo */}
@@ -148,7 +158,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setMenuOpen(false)}
-            className="bg-background text-primary px-4 py-2 rounded-2xl flex items-left gap-2"
+            className="bg-background text-primary px-8 py-2 rounded-2xl flex gap-2"
           >
             Contact
             <div className="bg-primary rounded-full p-1">
@@ -160,7 +170,7 @@ export default function Navbar() {
           <Link
             href="/quote"
             onClick={() => setMenuOpen(false)}
-            className="bg-background text-primary px-4 py-2 rounded-2xl flex items-center justify-center gap-2"
+            className="bg-background text-primary px-4 py-2 rounded-2xl flex justify-center gap-2"
           >
             Get A Quote
             <div className="bg-primary rounded-full p-1">

@@ -23,7 +23,7 @@ export default function Products() {
 
         <div className="mx-auto w-[75%]">
           <div
-            className="relative aspect-[4/3] lg:aspect-[3/1] mb-6 md:mb-10 overflow-hidden rounded-tr-[50px] rounded-bl-[50px] md:rounded-tr-[100px] md:rounded-bl-[100px] shadow-md border-2 border-amber-600"
+            className="relative aspect-[4/3] lg:aspect-[3/1] mb-6 md:mb-10 overflow-hidden rounded-tr-[50px] rounded-bl-[50px] md:rounded-tr-[100px] md:rounded-bl-[100px] shadow-md border-2 border-secondary"
           >
             <AnimatedImage
               src="/images/products.jpg"
@@ -35,8 +35,8 @@ export default function Products() {
             />
           </div>
 
-          <p className="font-open text-[12px] md:text-lg text-justify mb-6">
-            <span className="font-bold text-sm  md:text-2xl">O</span>ur premium Cocopeat Grow Bags provide ideal root development with high aeration, ensuring uniform growth and stronger plants. They support efficient nutrient uptake and are easy to use in greenhouses or outdoor gardens, making them popular among both beginners and professional growers. <br />
+          <p className="font-open text-[12px] md:text-lg text-justify mb-12">
+            <span className="font-bold text-sm md:text-2xl">O</span>ur premium Cocopeat Grow Bags provide ideal root development with high aeration, ensuring uniform growth and stronger plants. They support efficient nutrient uptake and are easy to use in greenhouses or outdoor gardens, making them popular among both beginners and professional growers. <br />
             <br />
 
             Customers can choose from cocopeat only, cocochips only, or a custom blend of cocopeat and cocochips to suit their crop needs. We also offer fully customizable orders, including blend ratios and packaging options.
@@ -46,10 +46,10 @@ export default function Products() {
             For growers who are not focused on commercial sales, we offer our Verdigrow-branded grow bags, providing the same high-quality coir-based products for personal or farm use.
           </p>
 
-          <h2 className="font-titillium text-2xl md:text-3xl font-bold text-primary inline-block border-b-4 border-secondary mb-6">
+          <h2 className="font-titillium text-2xl md:text-3xl font-bold text-primary inline-block border-b-4 border-secondary mb-8">
             KEY BENEFITS
           </h2>
-          <ul className="space-y-4 text-[14px] md:text-lg mb-6">
+          <ul className="space-y-4 text-[14px] md:text-lg mb-16">
             <li className="flex items-start gap-2">
               <FaCheckCircle className="text-secondary w-5 h-5 shrink-0 mt-1" />
               <span><span className="font-bold">Optimal Growing Conditions:</span> Stronger roots, faster growth, and healthier crops.</span>
@@ -72,7 +72,7 @@ export default function Products() {
           <h2 className="font-titillium text-2xl md:text-3xl font-bold text-primary inline-block border-b-4 border-secondary mb-6">
             APPLICATIONS
           </h2>
-          <ul className="space-y-4 text-[14px] md:text-lg mb-6">
+          <ul className="space-y-4 text-[14px] md:text-lg mb-8">
             <li className="flex items-start gap-2">
               <FaCheckCircle className="text-secondary w-5 h-5 shrink-0 mt-1" />
               <span><span className="font-bold">Vegetables:</span> Tomato, pepper, cucumber, eggplant, and melons</span>
@@ -91,14 +91,14 @@ export default function Products() {
             </li>
           </ul>
 
-          <p className="text-[14px] md:text-lg">
+          <p className="text-[14px] md:text-lg mb-16">
             Ready to grow healthier, more robust crops? Contact us today to receive a customized quote.
           </p>
         </div>
       </div>
 
-      <div className="border-t">
-        <div className="p-6 mx-auto max-w-3xl text-center">
+      <div className="border-t border-primary/50">
+        <div className="p-6 mx-auto max-w-3xl text-center mt-12">
           <h1 className="font-sohne font-bold text-[20px] md:text-[40px] mb-3 md:mb-4 text-primary">
             <AnimatedText text="PRIVATE LABEL - RETAIL" />
           </h1>

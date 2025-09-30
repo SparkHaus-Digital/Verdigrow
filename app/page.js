@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import TaglineSection from "@/components/TaglineSection";
 import RotatingCircle from "@/components/RotatingCircle";
 import { IoMdArrowForward } from "react-icons/io";
@@ -11,7 +10,6 @@ import { GiRecycle } from "react-icons/gi";
 import { HiOutlineCheckCircle, HiOutlineCube } from "react-icons/hi";
 import { IoSettingsOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import ProductCard from "@/components/ProductCard";
 
 import gsap from "gsap";
@@ -33,7 +31,7 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    if (featuresRef.current.length) {
+    let ctx = gsap.context(() => {
       gsap.from(featuresRef.current, {
         y: 50,
         opacity: 0,
@@ -43,11 +41,14 @@ export default function Home() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
-          toggleActions: "play none none none", // animate once
+          toggleActions: "restart none none none",
         },
       });
-    }
+    }, sectionRef);
+
+    return () => ctx.revert(); // cleanup when navigating away
   }, []);
+
 
   return (
     <div className="min-h-screen">
@@ -107,7 +108,7 @@ export default function Home() {
                 <span className="font-titillium text-primary font-semibold">Because quality matters:</span> our grow bags are crafted with EC, pH, moisture, <br /> and sand testing for consistent crop success.
               </p>
             </div>
-            <div className="hidden lg:block absolute top-4 right-8">
+            <div className="hidden lg:block absolute top-10 right-8">
               <RotatingCircle />
             </div>
           </div>
