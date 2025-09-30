@@ -13,14 +13,30 @@ export default function QuoteStep2() {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm({
     defaultValues: {
-      product: "",
-      quantity: "",
-      notes: "",
+      product: formData.product || "",
+      quantity: formData.quantity || "",
+      notes: formData.notes || "",
     },
   });
+
+  // Watch all fields
+  const watchedFields = watch();
+
+  useEffect(() => {
+    // Only update context if values are different
+    const hasChanged = Object.keys(watchedFields).some(
+      key => watchedFields[key] !== formData[key]
+    );
+
+    if (hasChanged) {
+      updateFormData(watchedFields);
+    }
+  }, [watchedFields, formData, updateFormData]);
+
 
   // Reset form values whenever formData changes
   useEffect(() => {

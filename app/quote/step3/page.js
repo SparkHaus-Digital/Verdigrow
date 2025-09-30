@@ -1,21 +1,24 @@
 "use client";
-import QuoteForm from "@/components/QuoteForm";
-import { useQuote } from "@/app/quote/QuoteContext";
+
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
-import { FaCheckCircle } from "react-icons/fa";
+import { useState, useEffect } from "react";
+
+import QuoteForm from "@/components/QuoteForm";
+import { useQuote } from "@/app/quote/QuoteContext";
+import { sendEmail } from "@/app/utils/sendEmail";
+
+import { FaCheckCircle, FaSpinner } from "react-icons/fa";
 
 export default function QuoteStep3() {
   const { formData, updateFormData } = useQuote();
   const router = useRouter();
-  const [showSuccess, setShowSuccess] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [submissionMessage, setSubmissionMessage] = useState("");
+
+  const { register, handleSubmit, watch, formState: { errors } } = useForm({
     defaultValues: {
       address1: formData.address1 || "",
       address2: formData.address2 || "",
@@ -26,9 +29,34 @@ export default function QuoteStep3() {
     },
   });
 
-  const onSubmit = (data) => {
-    updateFormData(data); // Save all address data
-    setShowSuccess(true); // Show success modal
+  const watchedFields = watch();
+
+  // Persist form changes to context
+  useEffect(() => {
+    const hasChanged = Object.keys(watchedFields).some(
+      key => watchedFields[key] !== formData[key]
+    );
+    if (hasChanged) {
+      updateFormData(watchedFields);
+    }
+  }, [watchedFields, formData, updateFormData]);
+
+  const onSubmit = async (data) => {
+    if (isSubmitting) return; // prevent double submission
+    setIsSubmitting(true);
+    setSubmissionMessage("Submitting your request...");
+
+    updateFormData(data); // save current step data
+
+    try {
+      await sendEmail({ ...formData, ...data }); // merge previous steps + current
+      setSubmissionMessage("Your quote request has been submitted successfully!");
+      setShowSuccess(true);
+    } catch (error) {
+      setSubmissionMessage("Failed to send. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -101,50 +129,66 @@ export default function QuoteStep3() {
 
         {/* Buttons */}
         <div className="space-y-2">
-          <button type="submit" className="w-full bg-primary text-white px-6 py-2 rounded-md">
-            Submit
+          <button
+            type="submit"
+            className={`w-full bg-primary text-white px-6 py-2 rounded-md ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Submitting..." : "Submit"}
           </button>
           <button
             type="button"
             onClick={() => router.push("/quote/step2")}
             className="w-full bg-primary text-white px-6 py-2 rounded-md"
+            disabled={isSubmitting}
           >
             Back
           </button>
         </div>
       </form>
 
-      {/* Success Modal */}
-      {showSuccess && (
+      {/* Modal */}
+      {showSuccess || isSubmitting ? (
         <div className="fixed inset-0 flex items-center justify-center bg-black/25 z-50">
           <div className="bg-white p-8 m-6 rounded-[20px] shadow-lg max-w-sm w-full text-center space-y-4 border border-primary font-open">
-            <FaCheckCircle className="text-secondary text-5xl mx-auto mb-6" />
-            <h2 className="text-xl font-bold text-primary">THANK YOU!</h2>
-            <div className="space-y-1 text-sm text-primary">
-              <p>Your quote request has been submitted.</p>
-              <p>We’ll email you your quotation within 24 hours.</p>
-            </div>
 
-          <div className="flex justify-center gap-4 mt-8">
-            <button
-              onClick={() => router.push("/")}
-              className="flex-1 bg-background text-primary px-6 py-2 rounded-[20px] hover:bg-primary/90 transition border border-primary"
-            >
-              HOME
-            </button>
+            {isSubmitting ? (
+              <>
+                <FaSpinner className="animate-spin text-primary text-5xl mx-auto mb-4" />
+                <h2 className="text-xl font-bold text-primary">Submitting your form...</h2>
+                <p className="text-sm text-primary">
+                  Please wait while we process your request.
+                </p>
+              </>
+            ) : (
+              <>
+                <FaCheckCircle className="text-secondary text-5xl mx-auto mb-6" />
+                <h2 className="text-xl font-bold text-primary">THANK YOU!</h2>
+                <p className="text-sm text-primary">
+                  Your quote request has been submitted. We’ll email you your quotation within 24 hours.
+                </p>
+                <div className="flex justify-center gap-4 mt-8">
+                  <button
+                    onClick={() => router.push("/")}
+                    className="flex-1 bg-background text-primary px-6 py-2 rounded-[20px] hover:bg-primary/90 transition border border-primary"
+                  >
+                    HOME
+                  </button>
 
-            <button
-              onClick={() => setShowSuccess(false)}
-              className="flex-1 bg-primary text-background px-6 py-2 rounded-[20px] hover:bg-gray-300 transition"
-            >
-              CLOSE
-            </button>
+                  <button
+                    onClick={() => router.push("/contact")}
+                    className="flex-1 bg-primary text-background px-6 py-2 rounded-[20px] hover:bg-gray-300 transition"
+                  >
+                    CONTACT
+                  </button>
+                </div>
+              </>
+            )}
+
           </div>
         </div>
-        </div>
-  )
-}
+      ) : null}
 
-    </QuoteForm >
+    </QuoteForm>
   );
 }
