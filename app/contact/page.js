@@ -67,7 +67,7 @@ export default function Contact() {
 
           <div
             ref={addToRefs}
-            className="flex gap-4 mb-6 text-xl md:text-3xl md:mt-auto md:justify-start justify-center md:pl-6"
+            className="flex gap-4 mb-6 text-xl md:text-xl md:mt-auto md:justify-start justify-center md:pl-6"
           >
             <FaFacebookF className="hover:text-secondary cursor-pointer" />
             <FaInstagram className="hover:text-secondary cursor-pointer" />
