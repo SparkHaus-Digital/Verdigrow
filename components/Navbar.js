@@ -93,7 +93,7 @@ export default function Navbar() {
           <Link href="/">Home</Link>
         </li>
         <li>
-          <Link href="/product">Product</Link>
+          <Link href="/product">Products</Link>
         </li>
         <li>
           <Link href="/about">About</Link>

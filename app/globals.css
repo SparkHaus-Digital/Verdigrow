@@ -87,7 +87,7 @@
   --color-background: #FDFFF5;
   --color-primary: #054C2E;
   --color-secondary: #E47839;
-  --color-tertiary: #42CD36;
+  --color-tertiary: #A5EBA4;
   --radius-custom-lg: 0.5rem;
 
   --font-sohne: "SohneBreit", sans-serif;
@@ -104,6 +104,10 @@
   .animate-fadeIn {
     animation: fadeIn 1s ease-out forwards;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 

@@ -19,7 +19,7 @@ const products = [
     description:
       "Custom-branded premium substrates tailored to your business needs.",
     image: "/images/blog-img2.jpg",
-    link: "/product",
+    link: "/product#private-label",
   },
 ]
 
@@ -49,7 +49,7 @@ export default function ProductCard() {
 
             {/* Button */}
             <Link
-              href={product.link}
+              href={product.link} scroll={false}
               className="bg-secondary px-5 py-2 rounded-full font-titillium text-xs md:text-sm  font-medium tracking-wide hover:bg-background hover:text-primary transition duration-300 ease-in-out w-fit mb-6"
             >
               DISCOVER MORE

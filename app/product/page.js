@@ -4,9 +4,23 @@ import Image from "next/image";
 import { FaCheckCircle } from "react-icons/fa";
 import AnimatedText from "@/components/AnimatedText";
 import AnimatedImage from "@/components/AnimatedImage";
+import { useEffect } from "react"
+import { usePathname, useSearchParams } from "next/navigation"
 
 
 export default function Products() {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash
+      if (hash) {
+        const el = document.querySelector(hash)
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" })
+        }
+      }
+    }
+  }, [])
+  
   return (
     <section className="mt-30 mb-7 lg:mb-20 font-open ">
       <div className="mb-10">
@@ -97,7 +111,7 @@ export default function Products() {
         </div>
       </div>
 
-      <div className="border-t border-primary/50">
+      <div id="private-label"  className="border-t border-primary/50">    
         <div className="p-6 mx-auto max-w-3xl text-center mt-12">
           <h1 className="font-sohne font-bold text-[20px] md:text-[40px] mb-3 md:mb-4 text-primary">
             <AnimatedText text="PRIVATE LABEL - RETAIL" />
