@@ -2,17 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-import { FaPhone } from "react-icons/fa6";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
-import { FaTiktok } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import { FaPhone, FaWhatsapp, FaFacebookF, FaInstagram, FaTiktok, FaLinkedin } from "react-icons/fa";
 import AnimatedText from "@/components/AnimatedText";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Contact() {
-  // refs for gsap
   const contentRef = useRef([]);
   contentRef.current = [];
 
@@ -23,13 +20,23 @@ export default function Contact() {
   };
 
   useEffect(() => {
-    gsap.from(contentRef.current, {
-      x: -50, // slide from left
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.2, // delay between each
-      ease: "power3.out",
-    });
+    if (contentRef.current.length === 0) return;
+
+    gsap.fromTo(
+      contentRef.current,
+      { y: 30, autoAlpha: 0 },
+      {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: contentRef.current[0],
+          start: "top 80%", // start animation when first element enters viewport
+        },
+      }
+    );
   }, []);
 
   return (
@@ -42,6 +49,7 @@ export default function Contact() {
           <h2 ref={addToRefs} className="font-sohne font-bold text-2xl md:text-[40px] mb-4">
             <AnimatedText text="CONTACT US" />
           </h2>
+
           <p ref={addToRefs} className="mb-12">
             No. 590, <br />
             Athurugiriya Road, Malabe, <br />
@@ -76,7 +84,7 @@ export default function Contact() {
               width="100%"
               height="100%"
               className="border-0 rounded-tr-[50px] rounded-bl-[50px]"
-              allowFullScreen=""
+              allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
