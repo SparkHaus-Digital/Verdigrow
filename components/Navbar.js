@@ -146,57 +146,57 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       <ul
-  ref={menuRef}
-  className="absolute top-full mt-1 left-0 w-full bg-[#095920] p-4 rounded-lg flex flex-col gap-3 md:hidden overflow-hidden items-center"
-  style={{ display: "none", height: 0, opacity: 0 }}
->
-  {[
-    { name: "Home", href: "/" },
-    { name: "Product", href: "/product" },
-    { name: "About", href: "/about" },
-    { name: "Blog", href: "/blog" },
-  ].map((item) => (
-    <li key={item.name} className="relative w-fit">
-      <Link
-        href={item.href}
-        onClick={() => setMenuOpen(false)}
-        className="block"
+        ref={menuRef}
+        className="absolute top-full mt-1 left-0 w-full bg-[#095920] p-4 rounded-lg flex flex-col gap-3 md:hidden overflow-hidden items-center"
+        style={{ display: "none", height: 0, opacity: 0 }}
       >
-        {item.name}
-      </Link>
-      {/* Animated underline */}
-      <span
-        className={`absolute left-0 -bottom-1 h-[2px] bg-white transition-all duration-500 ease-in-out
+        {[
+          { name: "Home", href: "/" },
+          { name: "Product", href: "/product" },
+          { name: "About", href: "/about" },
+          { name: "Blog", href: "/blog" },
+        ].map((item) => (
+          <li key={item.name} className="relative w-fit">
+            <Link
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              className="block"
+            >
+              {item.name}
+            </Link>
+            {/* Animated underline */}
+            <span
+              className={`absolute left-0 -bottom-1 h-[2px] bg-white transition-all duration-500 ease-in-out
         ${pathname === item.href ? "w-full opacity-100" : "w-0 opacity-0"}`}
-      />
-    </li>
-  ))}
+            />
+          </li>
+        ))}
 
-  <li>
-    <Link
-      href="/contact"
-      onClick={() => setMenuOpen(false)}
-      className="bg-background text-primary px-8 py-2 rounded-2xl flex gap-2"
-    >
-      Contact
-      <div className="bg-primary rounded-full p-1">
-        <FaArrowUp className="rotate-40 text-white" />
-      </div>
-    </Link>
-  </li>
-  <li>
-    <Link
-      href="/quote"
-      onClick={() => setMenuOpen(false)}
-      className="bg-background text-primary px-4 py-2 rounded-2xl flex justify-center gap-2"
-    >
-      Get A Quote
-      <div className="bg-primary rounded-full p-1">
-        <FaArrowUp className="rotate-40 text-white" />
-      </div>
-    </Link>
-  </li>
-</ul>
+        <li>
+          <Link
+            href="/contact"
+            onClick={() => setMenuOpen(false)}
+            className="bg-background text-primary px-8 py-2 rounded-2xl flex gap-2"
+          >
+            Contact
+            <div className="bg-primary rounded-full p-1">
+              <FaArrowUp className="rotate-40 text-white" />
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/quote"
+            onClick={() => setMenuOpen(false)}
+            className="bg-background text-primary px-4 py-2 rounded-2xl flex justify-center gap-2"
+          >
+            Get A Quote
+            <div className="bg-primary rounded-full p-1">
+              <FaArrowUp className="rotate-40 text-white" />
+            </div>
+          </Link>
+        </li>
+      </ul>
 
     </nav>
   );
