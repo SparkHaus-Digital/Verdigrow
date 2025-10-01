@@ -9,7 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^16.1.5",
+    "@contentful/rich-text-types": "^17.2.4",
     "axios": "^1.12.2",
+    "contentful": "^11.8.2",
     "formik": "^2.4.6",
     "framer-motion": "^12.23.19",
     "gsap": "^3.13.0",
