@@ -12,9 +12,9 @@ export default function RotatingCircle() {
     useEffect(() => {
         const circle = circleRef.current;
         const imageURLs = [
-            "https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/flair-36.png",
-            "https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/flair-25.png",
-            "https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/flair-24.png",
+          "/images/orange.png",
+          "/images/green.png",
+          "/images/greenorange.png"
         ];
 
         // place icons

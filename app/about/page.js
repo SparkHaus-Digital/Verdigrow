@@ -40,7 +40,7 @@ export default function About() {
           </h2>
 
           <p className="font-open max-w-3xl mx-auto text-gray-700 mt-4">
-            <AnimatedText text="To be a global leader in sustainable cocopeat solution empowering agricultural communities and promoting eco-conscious cultivation worldwide." speed={0.019} />
+            <AnimatedText text="To be a global leader in sustainable cocopeat solution empowering agricultural communities and promoting eco-conscious cultivation worldwide." />
           </p>
 
         </div>
@@ -53,7 +53,7 @@ export default function About() {
           <p className="font-open max-w-3xl mx-auto text-gray-700 mt-4">
 
             <AnimatedText text="To deliver premium, eco-friendly growing media by combining traditional Sri Lankan expertise with modern production practices. We are committed to quality, sustainability, and community upliftment from coconut grove
-            to global greenhouse." speed={0.019} />
+            to global greenhouse." />
           </p>
         </div>
 

@@ -14,6 +14,7 @@ import ProductCard from "@/components/ProductCard";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,15 +86,15 @@ export default function Home() {
           </div>
 
           {/* round button */}
-          <button
+          <Link href="/quote"
             className="h-[60px] w-[60px] sm:h-[70px] sm:w-[70px] md:h-30 md:w-30 flex items-center justify-center rounded-full border-2 border-white bg-white/10 backdrop-blur-md hover:bg-primary text-white transition mt-4 md:mt-0 md:ml-auto">
             <IoMdArrowForward className="text-2xl sm:text-3xl md:text-4xl" />
-          </button>
+          </Link>
         </div>
       </section>
 
       {/* Animated Tagline Section */}
-      <TaglineSection className="" />
+      <TaglineSection/>
 
       {/* Product Section */}
       <ProductCard />

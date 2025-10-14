@@ -11,7 +11,7 @@ const products = [
     description:
       "High-yield, eco-smart grow bags for greenhouse and hydroponic success.",
     image: "/images/product-sample.png",
-    link: "/product",
+    link: "/product#cocopeat-grow-bags",
   },
   {
     id: 2,
@@ -35,10 +35,10 @@ export default function ProductCard() {
         {products.map((product) => (
           <div
             key={product.id}
-            className="bg-primary rounded-xl p-6 text-white flex flex-col w-full h-[400px] border-1 border-secondary"
+            className="bg-primary rounded-4xl p-6 text-white flex flex-col w-full h-[400px] border-1 border-secondary"
           >
             {/* Title */}
-            <h3 className="font-titillium text-base md:text-lg font-semibold uppercase mb-3">
+            <h3 className="font-titillium text-base md:text-lg font-semibold uppercase mb-2">
               {product.title}
             </h3>
 
@@ -56,7 +56,7 @@ export default function ProductCard() {
             </Link>
 
             {/* Image pinned to bottom */}
-            <div className="mt-4 overflow-hidden border border-secondary rounded-lg">
+            <div className="mt-4 overflow-hidden rounded-lg">
               <AnimatedImage
                 src={product.image}
                 alt={product.title}

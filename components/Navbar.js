@@ -78,17 +78,18 @@ export default function Navbar() {
         }`}
     >
       {/* Logo */}
-      <Link href="/">
+      <Link href="/" className="flex items-center">
         <Image
           src="/images/verdigrow-logo.png"
           alt="VerdiGrow"
-          height={32}
-          width={120}
+          height={44}
+          width={160}
+          className="w-[120px] sm:w-[140px] md:w-[160px] h-auto"
         />
       </Link>
 
       {/* Desktop Links */}
-      <ul className="hidden md:flex space-x-4 sm:space-x-2 md:space-x-4 lg:space-x-10 md:text-[14px] font-open">
+      <ul className="hidden md:flex lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 space-x-4 sm:space-x-2 md:space-x-4 lg:space-x-10 md:text-[14px] font-open">
         {[
           { name: "Home", href: "/" },
           { name: "Products", href: "/product" },
@@ -101,7 +102,7 @@ export default function Navbar() {
             </Link>
             {/* Animated underline */}
             <span
-              className={`absolute left-0 -bottom-1 h-[2px] bg-white transition-all duration-500 ease-in-out
+              className={`absolute left-0 -bottom-1 h-[2px] bg-white transition-all duration-800 ease-in-out
         ${pathname === item.href ? "w-full opacity-100" : "w-0 opacity-0"}`}
             />
           </li>

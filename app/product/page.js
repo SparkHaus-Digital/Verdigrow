@@ -1,11 +1,10 @@
 "use client"
 
-import Image from "next/image";
 import { FaCheckCircle } from "react-icons/fa";
 import AnimatedText from "@/components/AnimatedText";
 import AnimatedImage from "@/components/AnimatedImage";
+import { motion } from "framer-motion"
 import { useEffect } from "react"
-import { usePathname, useSearchParams } from "next/navigation"
 
 
 export default function Products() {
@@ -20,23 +19,56 @@ export default function Products() {
       }
     }
   }, [])
-  
+
+  // Fade-up animation variant
+  const fadeUp = {
+    hidden: { y: 60, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  }
+
+  const benefits = [
+    { text: ["Optimal Growing Conditions:", "Stronger roots, faster growth, and healthier crops."], bold: [0] },
+    { text: ["Ideal Water and Air Balance:", "Perfect moisture & aeration for plant development."], bold: [0] },
+    { text: ["Stable & Reliable:", "Consistent pH and EC values for nutrient absorption."], bold: [0] },
+    { text: ["Sustainable and Natural:", "Made from renewable coir, 100% eco-friendly."], bold: [0] },
+  ]
+
+  const applications = [
+    { text: ["Vegetables:", "Tomato, pepper, cucumber, eggplant, and melons."], bold: [0] },
+    { text: ["Flowers:", "Gerberas, roses, and ornamental blooms"], bold: [0] },
+    { text: ["Soft Fruits:", "Strawberries, berries, and similar crops."], bold: [0] },
+    { text: ["Fruit Nurseries:", "Citrus trees, olive trees, and other fruit trees."], bold: [0] },
+  ]
+
   return (
     <section className="mt-30 mb-7 lg:mb-20 font-open ">
       <div className="mb-10">
-        <div className="p-6 mx-auto max-w-3xl text-center">
+        <div id="cocopeat-grow-bags" className="p-6 mx-auto max-w-3xl text-center">
           <h1 className="font-sohne font-bold text-[20px] md:text-[40px] mb-3 md:mb-4 text-primary">
             <AnimatedText text="COCOPEAT GROW BAGS" />
           </h1>
-          <p className="font-open mb-6 md:mb-10 text-[16px] md:text-xl">
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="font-open mb-6 md:mb-10 text-[16px] md:text-xl"
+          >
             Our high-performance <span className="font-black">coconut substrate grow bags</span>  are the perfect solution for hydroponic
             growers, greenhouses, and commercial farms. Designed to deliver exceptional results, our grow
             bags provide an ideal growing environment for a wide variety of crops.
-          </p>
+          </motion.p>
         </div>
 
         <div className="mx-auto w-[75%]">
-          <div
+          <motion.div variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             className="relative aspect-[4/3] lg:aspect-[3/1] mb-6 md:mb-10 overflow-hidden rounded-tr-[50px] rounded-bl-[50px] md:rounded-tr-[100px] md:rounded-bl-[100px] shadow-md border-2 border-secondary"
           >
             <AnimatedImage
@@ -47,9 +79,12 @@ export default function Products() {
               style={{ transformOrigin: "center center" }}
               priority
             />
-          </div>
+          </motion.div>
 
-          <p className="font-open text-[12px] md:text-lg text-justify mb-12">
+          <motion.p variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }} className="font-open text-[12px] md:text-lg text-justify mb-12">
             <span className="font-bold text-sm md:text-2xl">O</span>ur premium Cocopeat Grow Bags provide ideal root development with high aeration, ensuring uniform growth and stronger plants. They support efficient nutrient uptake and are easy to use in greenhouses or outdoor gardens, making them popular among both beginners and professional growers. <br />
             <br />
 
@@ -58,73 +93,90 @@ export default function Products() {
             <br />
 
             For growers who are not focused on commercial sales, we offer our Verdigrow-branded grow bags, providing the same high-quality coir-based products for personal or farm use.
-          </p>
+          </motion.p>
 
           <h2 className="font-titillium text-2xl md:text-3xl font-bold text-primary inline-block border-b-4 border-secondary mb-8">
             KEY BENEFITS
           </h2>
-          <ul className="space-y-4 text-[14px] md:text-lg mb-16">
-            <li className="flex items-start gap-2">
-              <FaCheckCircle className="text-secondary w-5 h-5 shrink-0 mt-1" />
-              <span><span className="font-bold">Optimal Growing Conditions:</span> Stronger roots, faster growth, and healthier crops.</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <FaCheckCircle className="text-secondary w-5 h-5 shrink-0 mt-1" />
-              <span><span className="font-bold">Ideal Water and Air Balance:</span> Perfect moisture & aeration for plant development.</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <FaCheckCircle className="text-secondary w-5 h-5 shrink-0 mt-1" />
-              <span><span className="font-bold">Stable & Reliable:</span> Consistent pH and EC values for nutrient absorption.</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <FaCheckCircle className="text-secondary w-5 h-5 shrink-0 mt-1" />
-              <span><span className="font-bold">Sustainable and Natural:</span> Made from renewable coir, 100% eco-friendly.</span>
-            </li>
-          </ul>
+
+          <motion.ul variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="space-y-4 text-[14px] md:text-lg mb-16">
+
+            {benefits.map((benefit, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <FaCheckCircle className="text-secondary mt-[3px]" />
+                <span>
+                  {benefit.text.map((t, j) =>
+                    benefit.bold.includes(j) ? (
+                      <span key={j} className="font-semibold">{t} </span>
+                    ) : (
+                      <span key={j}>{t} </span>
+                    )
+                  )}
+                </span>
+              </li>
+            ))}
+          </motion.ul>
 
 
           <h2 className="font-titillium text-2xl md:text-3xl font-bold text-primary inline-block border-b-4 border-secondary mb-6">
             APPLICATIONS
           </h2>
-          <ul className="space-y-4 text-[14px] md:text-lg mb-8">
-            <li className="flex items-start gap-2">
-              <FaCheckCircle className="text-secondary w-5 h-5 shrink-0 mt-1" />
-              <span><span className="font-bold">Vegetables:</span> Tomato, pepper, cucumber, eggplant, and melons</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <FaCheckCircle className="text-secondary w-5 h-5 shrink-0 mt-1" />
-              <span><span className="font-bold">Flowers:</span> Gerberas, roses, and ornamental blooms</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <FaCheckCircle className="text-secondary w-5 h-5 shrink-0 mt-1" />
-              <span><span className="font-bold">Soft Fruits:</span> Strawberries, berries, and similar crops</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <FaCheckCircle className="text-secondary w-5 h-5 shrink-0 mt-1" />
-              <span><span className="font-bold">Fruit Nurseries:</span> Citrus trees, olive trees, and other fruit trees</span>
-            </li>
-          </ul>
+          <motion.ul variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="space-y-4 text-[14px] md:text-lg mb-8">
+            {applications.map((application, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <FaCheckCircle className="text-secondary mt-[3px]" />
+                <span>
+                  {application.text.map((t, j) =>
+                    application.bold.includes(j) ? (
+                      <span key={j} className="font-semibold">{t} </span>
+                    ) : (
+                      <span key={j}>{t} </span>
+                    )
+                  )}
+                </span>
+              </li>
+            ))}
 
-          <p className="text-[14px] md:text-lg mb-16">
+          </motion.ul>
+
+          <motion.p variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }} className="text-[14px] md:text-lg mb-16">
             Ready to grow healthier, more robust crops? Contact us today to receive a customized quote.
-          </p>
+          </motion.p>
         </div>
       </div>
 
-      <div id="private-label"  className="border-t border-primary/50">    
+      <div id="private-label" className="border-t border-primary/50">
         <div className="p-6 mx-auto max-w-3xl text-center mt-12">
           <h1 className="font-sohne font-bold text-[20px] md:text-[40px] mb-3 md:mb-4 text-primary">
             <AnimatedText text="PRIVATE LABEL - RETAIL" />
           </h1>
-          <p className="font-open mb-6 md:mb-10 text-[16px] md:text-xl">
+          <motion.p variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="font-open mb-6 md:mb-10 text-[16px] md:text-xl">
             Looking to sell high-quality substrates under your own brand? <br />
             We’ll work with you to define your exact requirements and
             create a custom blend that meets your specifications.
-          </p>
+          </motion.p>
         </div>
 
         <div className="mx-auto w-[75%]">
-          <div
+          <motion.div variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             className="relative aspect-[4/3] lg:aspect-[3/1] mb-6 md:mb-10 overflow-hidden rounded-tr-[50px] rounded-bl-[50px] md:rounded-tr-[100px] md:rounded-bl-[100px] shadow-md border-2 border-amber-600"
           >
             <AnimatedImage
@@ -135,9 +187,12 @@ export default function Products() {
               style={{ transformOrigin: "center center" }}
               priority
             />
-          </div>
+          </motion.div>
 
-          <p className="font-open text-[12px] md:text-lg text-justify">
+          <motion.p variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }} className="font-open text-[12px] md:text-lg text-justify">
             <span className="font-bold text-sm  md:text-2xl">O</span>uur custom labeling service allows you to offer premium grow bags with your
             brand identity. Choose the ideal mix of cocopeat and cocochips, select
             packaging options, and set quality specifications. We will handle the rest,
@@ -149,7 +204,7 @@ export default function Products() {
             company’s name.
             <br />
             <br />
-          </p>
+          </motion.p>
         </div>
       </div>
     </section>
