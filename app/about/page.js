@@ -20,12 +20,11 @@ export default function About() {
   return (
     <section className="mt-30 mb-7 md:mb-20">
       <div className="p-6 mx-auto max-w-3xl text-center">
-        
         <motion.h1
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="font-sohne font-bold text-2xl md:text-[40px] text-primary"
+          className="font-sohne font-bold text-2xl md:text-[40px] text-primary md:mb-4"
         >
           ABOUT US
         </motion.h1>
