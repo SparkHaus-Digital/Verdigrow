@@ -1,15 +1,36 @@
+"use client"
+
 import Image from "next/image";
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";
 import AnimatedText from "@/components/AnimatedText";
+import { motion } from "framer-motion"
 
 export default function About() {
+
+  // Fade-up animation variant
+  const fadeUp = {
+    hidden: { y: 60, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    }
+  };
+
   return (
     <section className="mt-30 mb-7 md:mb-20">
       <div className="p-6 mx-auto max-w-3xl text-center">
-        <h1 className="font-sohne font-bold text-2xl md:text-[40px] mb-3 md:mb-4 text-primary">
-          <AnimatedText text="ABOUT US" />
-        </h1>
+        {/* Text Animation Suggestion 02 */}
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="font-sohne font-bold text-2xl md:text-[40px] text-primary"
+        >
+          ABOUT US
+        </motion.h1>
+
         <p className="font-open mb-10 text-sm md:text-xl">
           VerdiGrow is a Sri Lankan company with deep roots in coconut plantations. We source raw materials from the lush Coconut Triangle, renowned for its thriving coconut groves, and manage our operations from Colombo, with production facilities in Dambadeniya and Kuliyapitiya.
         </p>
@@ -35,26 +56,40 @@ export default function About() {
       <div className="w-full px-6 md:px-20 pt-20 text-center">
         {/* Vision */}
         <div className="mb-15 md:mb-16">
-          <h2 className="font-titillium text-2xl md:text-3xl font-bold text-primary inline-block border-b-4 border-secondary pb-1">
+          <motion.h2
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="font-titillium text-2xl md:text-3xl font-bold text-primary inline-block border-b-4 border-secondary pb-1">
             OUR VISION
-          </h2>
+          </motion.h2>
 
-          <p className="font-open max-w-3xl mx-auto text-gray-700 mt-4">
-            <AnimatedText text="To be a global leader in sustainable cocopeat solution empowering agricultural communities and promoting eco-conscious cultivation worldwide." />
-          </p>
+          <motion.p variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }} className="font-open max-w-3xl mx-auto text-gray-700 mt-4">
+            To be a global leader in sustainable cocopeat solution empowering agricultural communities and promoting eco-conscious cultivation worldwide.
+          </motion.p>
 
         </div>
 
         {/* Mission */}
         <div className="mb-20 md:mb-20">
-          <h2 className="font-titillium text-2xl md:text-3xl font-bold text-primary inline-block border-b-4 border-secondary pb-1">
+          <motion.h2 variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }} className="font-titillium text-2xl md:text-3xl font-bold text-primary inline-block border-b-4 border-secondary pb-1">
             OUR MISSION
-          </h2>
-          <p className="font-open max-w-3xl mx-auto text-gray-700 mt-4">
+          </motion.h2>
+          <motion.p variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }} className="font-open max-w-3xl mx-auto text-gray-700 mt-4">
 
-            <AnimatedText text="To deliver premium, eco-friendly growing media by combining traditional Sri Lankan expertise with modern production practices. We are committed to quality, sustainability, and community upliftment from coconut grove
-            to global greenhouse." />
-          </p>
+            To deliver premium, eco-friendly growing media by combining traditional Sri Lankan expertise with modern production practices. We are committed to quality, sustainability, and community upliftment from coconut grove
+            to global greenhouse.
+          </motion.p>
         </div>
 
         {/* CEO section */}

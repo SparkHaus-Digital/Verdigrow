@@ -48,9 +48,16 @@ export default function Products() {
     <section className="mt-30 mb-7 lg:mb-20 font-open ">
       <div className="mb-10">
         <div id="cocopeat-grow-bags" className="p-6 mx-auto max-w-3xl text-center">
-          <h1 className="font-sohne font-bold text-[20px] md:text-[40px] mb-3 md:mb-4 text-primary">
-            <AnimatedText text="COCOPEAT GROW BAGS" />
-          </h1>
+          {/* Text Animation Suggestion 01 */}
+          <motion.h1
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="font-sohne font-bold text-2xl md:text-[40px] mb-3 md:mb-4 text-primary"
+          >
+            COCOPEAT GROW BAGS
+          </motion.h1>
+
           <motion.p
             variants={fadeUp}
             initial="hidden"
