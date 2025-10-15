@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import { FaPhone, FaWhatsapp, FaFacebookF, FaInstagram, FaTiktok, FaLinkedin } from "react-icons/fa";
-import AnimatedText from "@/components/AnimatedText";
+import { motion } from "framer-motion"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,12 +43,14 @@ export default function Contact() {
     <div className="mt-30 mb-20">
       {/* Main Box */}
       <div className="w-3/4 mx-auto bg-primary text-white rounded-tr-[50px] rounded-bl-[50px] md:rounded-tr-[100px] md:rounded-bl-[100px] p-2 md:p-8 flex flex-col-reverse md:flex-row gap-8">
-        
+
         {/* Left Column */}
         <div className="flex flex-col px-2">
-          <h2 ref={addToRefs} className="font-sohne font-bold text-2xl md:text-[40px] mb-4">
-            <AnimatedText text="CONTACT US" />
-          </h2>
+          <motion.h2 initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }} className="font-sohne font-bold text-2xl md:text-[40px] mb-4">
+            CONTACT US
+          </motion.h2>
 
           <p ref={addToRefs} className="mb-12">
             No. 590, <br />

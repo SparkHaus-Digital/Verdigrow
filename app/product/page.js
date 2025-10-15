@@ -50,9 +50,9 @@ export default function Products() {
         <div id="cocopeat-grow-bags" className="p-6 mx-auto max-w-3xl text-center">
           {/* Text Animation Suggestion 01 */}
           <motion.h1
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="font-sohne font-bold text-2xl md:text-[40px] mb-3 md:mb-4 text-primary"
           >
             COCOPEAT GROW BAGS

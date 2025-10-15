@@ -5,9 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { MdArrowOutward } from "react-icons/md";
 import AnimatedText from "@/components/AnimatedText";
+import { motion } from "framer-motion";
 
 export default function BlogList({ posts }) {
- 
+
   const formattedPosts = useMemo(() => {
     return posts.map((post) => {
       const { slug, title, tags, dateAndTime, thumbnail } = post.fields;
@@ -23,9 +24,11 @@ export default function BlogList({ posts }) {
   return (
     <div className="mt-30 mb-20 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl text-center">
-        <h1 className="font-sohne font-bold text-3xl sm:text-4xl md:text-[40px] mb-6 text-primary">
-          <AnimatedText text="BLOG" />
-        </h1>
+        <motion.h1 initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }} className="font-sohne font-bold text-3xl sm:text-4xl md:text-[40px] mb-6 text-primary">
+          BLOG
+        </motion.h1>
       </div>
 
       <ul className="space-y-10 md:space-y-12">

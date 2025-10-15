@@ -25,15 +25,18 @@ export default function About() {
         <motion.h1
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="font-sohne font-bold text-2xl md:text-[40px] text-primary"
         >
           ABOUT US
         </motion.h1>
 
-        <p className="font-open mb-10 text-sm md:text-xl">
+        <motion.p variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }} className="font-open mb-10 text-sm md:text-xl">
           VerdiGrow is a Sri Lankan company with deep roots in coconut plantations. We source raw materials from the lush Coconut Triangle, renowned for its thriving coconut groves, and manage our operations from Colombo, with production facilities in Dambadeniya and Kuliyapitiya.
-        </p>
+        </motion.p>
       </div>
 
       <div className="grid grid-cols-3 h-[200px] md:h-[400px] lg:h-[500px]">
