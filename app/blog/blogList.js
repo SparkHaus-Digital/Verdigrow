@@ -4,7 +4,6 @@ import { useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MdArrowOutward } from "react-icons/md";
-import AnimatedText from "@/components/AnimatedText";
 import { motion } from "framer-motion";
 
 export default function BlogList({ posts }) {

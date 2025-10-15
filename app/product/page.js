@@ -1,11 +1,9 @@
 "use client"
 
 import { FaCheckCircle } from "react-icons/fa";
-import AnimatedText from "@/components/AnimatedText";
 import AnimatedImage from "@/components/AnimatedImage";
 import { motion } from "framer-motion"
 import { useEffect } from "react"
-
 
 export default function Products() {
   useEffect(() => {
@@ -165,9 +163,11 @@ export default function Products() {
 
       <div id="private-label" className="border-t border-primary/50">
         <div className="p-6 mx-auto max-w-3xl text-center mt-12">
-          <h1 className="font-sohne font-bold text-[20px] md:text-[40px] mb-3 md:mb-4 text-primary">
-            <AnimatedText text="PRIVATE LABEL - RETAIL" />
-          </h1>
+          <motion.h1 initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }} className="font-sohne font-bold text-[20px] md:text-[40px] mb-3 md:mb-4 text-primary">
+            PRIVATE LABEL - RETAIL
+          </motion.h1>
           <motion.p variants={fadeUp}
             initial="hidden"
             whileInView="visible"

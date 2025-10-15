@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";
-import AnimatedText from "@/components/AnimatedText";
 import { motion } from "framer-motion"
 
 export default function About() {
@@ -21,7 +20,7 @@ export default function About() {
   return (
     <section className="mt-30 mb-7 md:mb-20">
       <div className="p-6 mx-auto max-w-3xl text-center">
-        {/* Text Animation Suggestion 02 */}
+        
         <motion.h1
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
