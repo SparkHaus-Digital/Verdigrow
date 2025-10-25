@@ -30,7 +30,7 @@ export const metadata = {
 const soehneBreit = localFont({
   src: [
     { path: "../public/fonts/soehne-breit/SohneBreit-Fett.woff2", weight: "900", style: "normal"},
-    { path: "../public/fonts/soehne-breit/SohneBreit-ExtraFett.woff2", weight: "800", style: "normal" },
+    { path: "../public/fonts/soehne-breit/SohneBreit-Extrafett.woff2", weight: "800", style: "normal" },
     { path: "../public/fonts/soehne-breit/SohneBreit-Dreiviertelfett.woff2", weight: "700", style: "normal" },
   ],
   variable: "--font-soehne-breit",
