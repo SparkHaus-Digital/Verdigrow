@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^16.1.5",
@@ -26,11 +26,11 @@
     "yup": "^1.7.1"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
+    "@eslint/eslintrc": "^3.0.0",
     "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "24.3.1",
     "@types/react": "19.1.12",
-    "eslint": "^9",
+    "eslint": "^9.0.0",
     "eslint-config-next": "15.5.2",
     "tailwindcss": "^4.1.13"
   }
