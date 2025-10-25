@@ -43,9 +43,9 @@ export default function Products() {
   ]
 
   return (
-    <section className="mt-30 mb-7 lg:mb-20 font-open ">
+    <section id="cocopeat-grow-bags" className="mt-30 mb-7 lg:mb-20 font-open ">
       <div className="mb-10">
-        <div id="cocopeat-grow-bags" className="p-6 mx-auto max-w-3xl text-center">
+        <div className="p-6 mx-auto max-w-3xl text-center">
           {/* Text Animation Suggestion 01 */}
           <motion.h1
             initial={{ opacity: 0, scale: 0.95 }}

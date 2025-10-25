@@ -58,7 +58,13 @@ export default function Contact() {
             Colombo, Sri Lanka.
           </p>
 
-          <p ref={addToRefs} className="mb-12">info@verdigrow.com</p>
+          <a
+            ref={addToRefs}
+            href="mailto:info@verdigrow.com"
+            className="mb-12 hover:text-secondary no-underline"
+          >
+            info@verdigrow.com
+          </a>
 
           <p ref={addToRefs} className="mb-2 flex items-center gap-2">
             <FaPhone className="text-lg" /> +94 11 274 2238

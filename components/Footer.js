@@ -37,9 +37,12 @@ export default function Footer() {
           <div className="flex justify-between gap-4">
             <div>
               <h3 className="font-titillium font-semibold text-base mb-2">EMAIL</h3>
-              <p className="flex items-center gap-2 font-open font-semibold text-[12px] text-black hover:text-secondary">
+              <a
+                href="mailto:info@verdigrowglobal.com"
+                className="flex items-center gap-2 font-open font-semibold text-[12px] text-black hover:text-secondary no-underline"
+              >
                 <IoMdMail /> info@verdigrowglobal.com
-              </p>
+              </a>
             </div>
 
             <div>
@@ -116,9 +119,12 @@ export default function Footer() {
           {/* Middle - Email & Contact */}
           <div>
             <h3 className="font-titillium font-semibold text-xl mb-3">EMAIL</h3>
-            <p className="flex items-center gap-2 font-open font-semibold text-base text-black hover:text-secondary">
+            <a
+              href="mailto:info@verdigrowglobal.com"
+              className="flex items-center gap-2 font-open font-semibold text-base text-black hover:text-secondary no-underline"
+            >
               <IoMdMail /> info@verdigrowglobal.com
-            </p>
+            </a>
 
             <h3 className="font-titillium font-semibold text-xl mt-6 mb-3">
               CONTACT
