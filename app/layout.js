@@ -1,6 +1,5 @@
 import "./globals.css";
 import { Titillium_Web, Open_Sans } from 'next/font/google';
-import localFont from "next/font/local";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -26,20 +25,9 @@ export const metadata = {
   },
 };
 
-
-const soehneBreit = localFont({
-  src: [
-    { path: "../public/fonts/soehne-breit/SohneBreit-Fett.woff2", weight: "900", style: "normal"},
-    { path: "../public/fonts/soehne-breit/SohneBreit-Extrafett.woff2", weight: "800", style: "normal" },
-    { path: "../public/fonts/soehne-breit/SohneBreit-Dreiviertelfett.woff2", weight: "700", style: "normal" },
-  ],
-  variable: "--font-soehne-breit",
-  display: "swap",
-});
-
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${soehneBreit.variable} ${titillium.variable} ${openSans.variable}`}>
+    <html lang="en" className={`${titillium.variable} ${openSans.variable}`}>
       <body className="bg-background min-h-screen overflow-x-hidden">
         <Navbar />
         <main>{children}</main>

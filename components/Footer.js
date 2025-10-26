@@ -1,4 +1,5 @@
 // components/Footer.jsx
+import Image from "next/image";
 import Link from "next/link";
 import { FaInstagram, FaTwitter, FaFacebookF, FaArrowUp } from "react-icons/fa";
 import { IoMdMail, IoMdCall, IoLogoWhatsapp } from "react-icons/io";
@@ -6,13 +7,17 @@ import { IoMdMail, IoMdCall, IoLogoWhatsapp } from "react-icons/io";
 export default function Footer() {
   return (
     <footer
-      className="relative bg-white text-primary py-10"
-      style={{
-        backgroundImage: "url('/images/footer-bg-2.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+      className="relative bg-white text-primary py-10" >
+
+
+      <Image
+        src="/images/footer-bg-2.png"
+        alt="footer background"
+        fill
+        priority
+        className="object-cover object-center"
+      />
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-[#FDFFF5]/75 pointer-events-none"></div>
 

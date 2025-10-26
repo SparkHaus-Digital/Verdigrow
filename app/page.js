@@ -11,9 +11,10 @@ import { HiOutlineCheckCircle, HiOutlineCube } from "react-icons/hi";
 import { IoSettingsOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
 import ProductCard from "@/components/ProductCard";
+import Image from "next/image";
 
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -55,14 +56,15 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Landing Section */}
       <section
-        className="relative h-[80vh] md:h-screen rounded-b-4xl shadow-xl overflow-hidden"
-        style={{
-          backgroundImage: "url('/images/landing-bg.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-        }}
-      >
+        className="relative h-[80vh] md:h-screen rounded-b-4xl shadow-xl overflow-hidden">
+        <Image
+          src="/images/landing-bg.avif"
+          alt="Landing background"
+          fill
+          priority
+          className="object-cover object-center -z-10"
+        />
+
         <div className="absolute bottom-10 md:bottom-20 left-0 right-0 flex flex-col md:flex-row md:justify-between items-start md:items-center max-w-6xl mx-auto px-4 md:px-6 gap-6">
           <div className="text-left">
             <motion.h1
@@ -86,7 +88,7 @@ export default function Home() {
           </div>
 
           {/* round button */}
-          <Link href="/quote"
+          <Link href="/quote" aria-label="Go to quote page"
             className="h-[60px] w-[60px] sm:h-[70px] sm:w-[70px] md:h-30 md:w-30 flex items-center justify-center rounded-full border-2 border-white bg-white/10 backdrop-blur-md hover:bg-primary text-white transition mt-4 md:mt-0 md:ml-auto">
             <IoMdArrowForward className="text-2xl sm:text-3xl md:text-4xl" />
           </Link>
@@ -94,7 +96,7 @@ export default function Home() {
       </section>
 
       {/* Animated Tagline Section */}
-      <TaglineSection/>
+      <TaglineSection />
 
       {/* Product Section */}
       <ProductCard />

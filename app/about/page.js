@@ -132,7 +132,7 @@ export default function About() {
             </div>
 
             <h3 className="font-sohne-regular text-lg">John Doe</h3>
-            <p className="font-sohne-regular text-gray-600">Founder & CEO of Verdigr​ow</p>
+            <p className=" text-gray-600">Founder & CEO of Verdigr​ow</p>
           </div>
         </div>
       </div>
