@@ -28,6 +28,7 @@ export default function AnimatedImage({ src, alt, className = "", ...props }) {
       ref={imageRef}
       src={src}
       alt={alt}
+      loading="lazy"
       className={`will-change-transform ${className}`}
       {...props}
     />

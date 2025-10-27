@@ -38,7 +38,7 @@ export default function About() {
       </div>
 
       <div className="grid grid-cols-3 h-[200px] md:h-[400px] lg:h-[500px]">
-        {["aboutus-img1.png", "aboutus-img2.png", "aboutus-img3.png"].map((img, i) => (
+        {["aboutus-img1.avif", "aboutus-img2.avif", "aboutus-img3.avif"].map((img, i) => (
           <div
             key={i}
             className="relative group overflow-hidden"
@@ -97,7 +97,7 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-10 items-center max-w-5xl mx-auto">
           <div className="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg border-2 border-secondary">
             <Image
-              src="/images/ceo.png"
+              src="/images/ceo.avif"
               alt="CEO"
               fill
               className="object-cover"

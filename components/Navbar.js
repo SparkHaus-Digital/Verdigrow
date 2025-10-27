@@ -139,6 +139,7 @@ export default function Navbar() {
       <div className="md:hidden">
         <button
           className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition"
+          aria-label="Open menu"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <CiGrid41 size={24} />

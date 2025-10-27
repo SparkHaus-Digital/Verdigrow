@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import AnimatedImage from "./AnimatedImage"
 
 const products = [
@@ -10,7 +9,7 @@ const products = [
     title: "COCOPEAT GROW BAGS",
     description:
       "High-yield, eco-smart grow bags for greenhouse and hydroponic success.",
-    image: "/images/product-sample.png",
+    image: "/images/product-sample.avif",
     link: "/product#cocopeat-grow-bags",
   },
   {
@@ -18,7 +17,7 @@ const products = [
     title: "PRIVATE LABEL – RETAIL",
     description:
       "Custom-branded premium substrates tailored to your business needs.",
-    image: "/images/blog-img2.jpg",
+    image: "/images/blog-img2.avif",
     link: "/product#private-label",
   },
 ]

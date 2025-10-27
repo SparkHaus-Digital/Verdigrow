@@ -8,14 +8,12 @@ export default function Footer() {
   return (
     <footer
       className="relative bg-white text-primary py-10" >
-
-
       <Image
-        src="/images/footer-bg-2.png"
+        src="/images/footer-bg-2.avif"
         alt="footer background"
         fill
-        priority
         className="object-cover object-center"
+        loading="lazy"
       />
 
       {/* Overlay */}
@@ -41,7 +39,7 @@ export default function Footer() {
           {/* Top row: Email + Contact */}
           <div className="flex justify-between gap-4">
             <div>
-              <h3 className="font-titillium font-semibold text-base mb-2">EMAIL</h3>
+              <h2 className="font-titillium font-semibold text-base mb-2">EMAIL</h2>
               <a
                 href="mailto:info@verdigrowglobal.com"
                 className="flex items-center gap-2 font-open font-semibold text-[12px] text-black hover:text-secondary no-underline"
@@ -51,7 +49,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h3 className="font-titillium font-semibold text-base mb-2">CONTACT</h3>
+              <h2 className="font-titillium font-semibold text-base mb-2">CONTACT</h2>
               <p className="flex items-center gap-2 font-open font-semibold text-[12px] text-black hover:text-secondary">
                 <IoMdCall /> +94 11 274 2238
               </p>
@@ -64,9 +62,9 @@ export default function Footer() {
           {/* Bottom row: Address + Buttons */}
           <div className="flex justify-between items-start gap-6">
             <div>
-              <h3 className="font-titillium font-semibold text-base mb-2">
+              <h2 className="font-titillium font-semibold text-base mb-2">
                 VERDIGROW GLOBAL
-              </h3>
+              </h2>
               <p className="font-open font-semibold text-[12px] text-black hover:text-secondary">
                 No. 590, <br /> Athurugiriya Road, Malabe, <br /> Colombo, Sri Lanka.
               </p>
@@ -123,7 +121,7 @@ export default function Footer() {
 
           {/* Middle - Email & Contact */}
           <div>
-            <h3 className="font-titillium font-semibold text-xl mb-3">EMAIL</h3>
+            <h2 className="font-titillium font-semibold text-xl mb-3">EMAIL</h2>
             <a
               href="mailto:info@verdigrowglobal.com"
               className="flex items-center gap-2 font-open font-semibold text-base text-black hover:text-secondary no-underline"
@@ -131,9 +129,9 @@ export default function Footer() {
               <IoMdMail /> info@verdigrowglobal.com
             </a>
 
-            <h3 className="font-titillium font-semibold text-xl mt-6 mb-3">
+            <h2 className="font-titillium font-semibold text-xl mt-6 mb-3">
               CONTACT
-            </h3>
+            </h2>
             <p className="flex items-center gap-2 font-open font-semibold text-base text-black hover:text-secondary">
               <IoMdCall /> +94 11 274 2238
             </p>
@@ -144,9 +142,9 @@ export default function Footer() {
 
           {/* Right - Address & Buttons */}
           <div>
-            <h3 className="font-titillium font-semibold text-xl mb-3">
+            <h2 className="font-titillium font-semibold text-xl mb-3">
               VERDIGROW GLOBAL
-            </h3>
+            </h2>
             <p className="font-open font-semibold text-base text-black mb-4 hover:text-secondary">
               No. 590, <br /> Athurugiriya Road, Malabe, <br /> Colombo, Sri Lanka.
             </p>

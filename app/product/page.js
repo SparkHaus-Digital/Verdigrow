@@ -77,12 +77,11 @@ export default function Products() {
             className="relative aspect-[4/3] lg:aspect-[3/1] mb-6 md:mb-10 overflow-hidden rounded-tr-[50px] rounded-bl-[50px] md:rounded-tr-[100px] md:rounded-bl-[100px] shadow-md border-2 border-secondary"
           >
             <AnimatedImage
-              src="/images/products.jpg"
+              src="/images/products.avif"
               alt="Cocopeat Grow Bags"
               fill
               className="object-cover will-change-transform"
               style={{ transformOrigin: "center center" }}
-              priority
             />
           </motion.div>
 
@@ -187,12 +186,11 @@ export default function Products() {
             className="relative aspect-[4/3] lg:aspect-[3/1] mb-6 md:mb-10 overflow-hidden rounded-tr-[50px] rounded-bl-[50px] md:rounded-tr-[100px] md:rounded-bl-[100px] shadow-md border-2 border-amber-600"
           >
             <AnimatedImage
-              src="/images/blog-img2.jpg"
+              src="/images/blog-img2.avif"
               alt="Cocopeat Grow Bags"
               fill
               className="object-cover will-change-transform"
               style={{ transformOrigin: "center center" }}
-              priority
             />
           </motion.div>
 
